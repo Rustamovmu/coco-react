@@ -6,7 +6,7 @@ import App from "./app/App";
 import reportWebVitals from "./reportWebVitals";
 import CssBaseline  from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "./app/theme"
+import theme from "./app/MaterialTheme"
 // @ts-ignore: Ignore missing type declarations for CSS side-effect import
 import "./css/index.css";
 
