@@ -1,8 +1,7 @@
 import React from "react";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-// CSS is handled by the bundler; TypeScript has no module declaration for it.
-// @ts-expect-error Missing declaration for stylesheet side-effect import.
+// @ts-ignore: Allow side-effect CSS import without type declarations
 import "./css/footer.css";
 
 const socialLinks = [
