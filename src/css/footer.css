@@ -1,1 +1,100 @@
+.coco-footer {
+  background: #202020;
+  color: #f7f4ef;
+  margin-top: auto;
+  padding: 76px 0 28px;
+}
 
+.coco-footer__content {
+  display: grid;
+  gap: 48px;
+  grid-template-columns: minmax(0, 1.7fr) minmax(150px, 0.7fr) minmax(190px, 0.9fr);
+}
+
+.coco-footer__brand,
+.coco-footer__section,
+.coco-footer__links,
+.coco-footer__contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.coco-footer__brand,
+.coco-footer__section {
+  gap: 20px;
+}
+
+.coco-footer__logo {
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1;
+}
+
+.coco-footer__description {
+  color: #c9c6c0;
+  line-height: 1.7;
+  max-width: 360px;
+}
+
+.coco-footer__socials {
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.coco-footer a {
+  color: #f7f4ef;
+  text-decoration: none;
+}
+
+.coco-footer a:hover {
+  color: #d8b07a;
+}
+
+.coco-footer__heading {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.coco-footer__links,
+.coco-footer__contact {
+  color: #c9c6c0;
+  gap: 12px;
+  line-height: 1.5;
+}
+
+.coco-footer__contact a {
+  color: #c9c6c0;
+}
+
+.coco-footer__divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 62px;
+}
+
+.coco-footer__copyright {
+  color: #9f9b95;
+  font-size: 13px;
+  padding-top: 24px;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .coco-footer {
+    padding-top: 48px;
+  }
+
+  .coco-footer__content {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .coco-footer__divider {
+    margin-top: 42px;
+  }
+}
