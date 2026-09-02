@@ -4,21 +4,21 @@
 }
 
 .coco-header--transparent {
-  background: transparent;
-  border-bottom: 0;
+  background: rgba(246, 242, 236, 0.82);
+  border-bottom: 1px solid rgba(83, 72, 61, 0.12);
 }
 
 .coco-header__inner {
-  min-height: 76px;
+  min-height: 72px;
   gap: 24px;
 }
 
 .coco-header__brand {
   color: #202020;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 25px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-decoration: none;
 }
 
@@ -30,15 +30,29 @@
 }
 
 .coco-header__links a {
-  color: #56514b;
-  font-size: 14px;
+  color: #625b54;
+  font-size: 13px;
+  letter-spacing: 0.02em;
   text-decoration: none;
 }
 
 .coco-header__links a:hover,
 .coco-header__links .coco-header__link--active {
   color: #202020;
-  font-weight: 700;
+  font-weight: 600;
+}
+
+.coco-header__auth .MuiButton-contained {
+  background: #33302c;
+  border-radius: 0;
+  box-shadow: none;
+  padding-inline: 20px;
+  text-transform: none;
+}
+
+.coco-header__auth .MuiButton-contained:hover {
+  background: #1f1d1a;
+  box-shadow: none;
 }
 
 .coco-header__account .MuiTypography-root {
@@ -46,32 +60,135 @@
 }
 
 .coco-home-header {
-  background: linear-gradient(110deg, #eee4d6 0%, #d2b99b 100%);
-  min-height: 520px;
+  background: #f6f2ec;
+  border-bottom: 1px solid #e5ded5;
+  min-height: 470px;
+  overflow: hidden;
+  position: relative;
+}
+
+.coco-home-header__video,
+.coco-home-header__video-overlay {
+  height: 100%;
+  inset: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.coco-home-header__video {
+  filter: saturate(0.68) contrast(0.92);
+  object-fit: cover;
+  z-index: 0;
+}
+
+.coco-home-header__video-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(29, 26, 23, 0.3) 0%,
+    rgba(47, 41, 36, 0.16) 55%,
+    rgba(29, 26, 23, 0.28) 100%
+  );
+  z-index: 1;
+}
+
+.coco-home-header > .coco-header,
+.coco-home-header > .MuiContainer-root {
+  position: relative;
+  z-index: 2;
 }
 
 .coco-home-header__hero {
-  min-height: 444px;
-  max-width: 620px;
+  align-items: center;
+  display: grid;
+  gap: clamp(40px, 8vw, 110px);
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.55fr);
+  min-height: 398px;
+  position: relative;
+}
+
+.coco-home-header__content {
+  background: rgba(246, 242, 236, 0.9);
+  backdrop-filter: blur(5px);
+  max-width: 670px;
+  padding: 34px 38px;
 }
 
 .coco-home-header__eyebrow {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  color: #817365;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
 }
 
 .coco-home-header__title {
-  color: #202020;
+  color: #292622;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(42px, 6vw, 72px);
-  line-height: 1.05;
-  margin: 18px 0;
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 400;
+  line-height: 1.08;
+  margin: 16px 0 18px;
 }
 
 .coco-home-header__copy {
-  color: #413a33;
-  font-size: 17px;
+  color: #665f57;
+  font-size: 15px;
+  line-height: 1.75;
+  max-width: 570px;
+}
+
+.coco-home-header__buttons {
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.coco-home-header__buttons .MuiButton-root {
+  border-radius: 0;
+  font-size: 13px;
+  min-height: 43px;
+  padding-inline: 21px;
+  text-transform: none;
+}
+
+.coco-home-header__buttons .MuiButton-contained {
+  background: #33302c;
+  box-shadow: none;
+}
+
+.coco-home-header__buttons .MuiButton-contained:hover {
+  background: #1f1d1a;
+  box-shadow: none;
+}
+
+.coco-home-header__buttons .MuiButton-text {
+  color: #5f574f;
+}
+
+.coco-home-header__note {
+  background: rgba(246, 242, 236, 0.86);
+  backdrop-filter: blur(5px);
+  border-left: 1px solid rgba(255, 255, 255, 0.72);
+  color: #6d655c;
+  padding: 24px 26px;
+}
+
+.coco-home-header__note-number {
+  color: #a28f7c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  margin-bottom: 30px;
+}
+
+.coco-home-header__note h2 {
+  color: #35312d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.coco-home-header__note p:last-child {
+  font-size: 13px;
+  line-height: 1.7;
 }
 
 .coco-cart-menu .MuiMenu-list {
@@ -143,10 +260,35 @@
   }
 
   .coco-home-header {
-    min-height: 430px;
+    min-height: 500px;
   }
 
   .coco-home-header__hero {
-    min-height: 354px;
+    align-items: center;
+    grid-template-columns: 1fr;
+    min-height: 428px;
+    padding: 54px 0;
+  }
+
+  .coco-home-header__content {
+    padding: 28px 24px;
+  }
+
+  .coco-home-header__note {
+    display: none;
+  }
+
+  .coco-home-header__buttons {
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coco-home-header__video {
+    display: none;
+  }
+
+  .coco-home-header__video-overlay {
+    background: linear-gradient(110deg, #f6f2ec 0%, #ddd0c1 100%);
   }
 }
