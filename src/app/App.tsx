@@ -13,27 +13,29 @@ import Footer  from "./components/footer";
 function App() {
   const location = useLocation();
   return ( 
-    <>
+    <div className="coco-app-shell">
       {location.pathname === "/" ? <HomeNavbar/> : <OtherNavbar/>}
-      <Switch>
-        <Route path="/products">
-          <ProductsPage/>
-        </Route>
-        <Route path="/orders">
-          <OrdersPage/>
-        </Route>
-        <Route path="/member-page">
-          <UserPage/>
-        </Route>
-        <Route path="/help">
-          <HelpPage/>
-        </Route>
-        <Route exact path="/">
-          <HomePage/>
-        </Route>
-      </Switch>
+      <main className="coco-app-shell__main">
+        <Switch>
+          <Route path="/products">
+            <ProductsPage/>
+          </Route>
+          <Route path="/orders">
+            <OrdersPage/>
+          </Route>
+          <Route path="/member-page">
+            <UserPage/>
+          </Route>
+          <Route path="/help">
+            <HelpPage/>
+          </Route>
+          <Route exact path="/">
+            <HomePage/>
+          </Route>
+        </Switch>
+      </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

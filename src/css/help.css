@@ -1,1 +1,26 @@
-
+.coco-help { background: #f7f3ed; color: #24211e; padding: 54px 0 80px; }
+.coco-help__topics { display: grid; gap: 1px; grid-template-columns: repeat(3,minmax(0,1fr)); margin-bottom: 62px; }
+.coco-help__topic { background: #fff; gap: 15px; padding: 20px 22px; }
+.coco-help__topic-icon { align-items: center; background: #eee6dc; border-radius: 50%; color: #8d6945; display: flex; height: 42px; justify-content: center; width: 42px; }
+.coco-help__topic-icon svg { font-size: 20px; }
+.coco-help__topic h2.MuiTypography-root { font-family: Georgia, "Times New Roman", serif; font-size: 17px; }
+.coco-help__topic div > .MuiTypography-root { color: #827a72; font-size: 11px; margin-top: 3px; }
+.coco-help__layout { display: grid; gap: 90px; grid-template-columns: minmax(260px,.7fr) minmax(420px,1.3fr); }
+.coco-help__eyebrow.MuiTypography-root { color: #9a744c; font-size: 10px; font-weight: 700; letter-spacing: .2em; }
+.coco-help__heading > h1.MuiTypography-root { font-family: Georgia, "Times New Roman", serif; font-size: clamp(40px,5vw,62px); font-weight: 400; letter-spacing: -.04em; line-height: 1; margin: 10px 0 18px; }
+.coco-help__heading > .MuiTypography-root:not(.coco-help__eyebrow) { color: #766f67; font-size: 13px; line-height: 1.7; }
+.coco-help__contact-card { background: #252320; margin-top: 32px; padding: 24px; }
+.coco-help__contact-card h2.MuiTypography-root { color: #fff; font-family: Georgia, "Times New Roman", serif; font-size: 21px; }
+.coco-help__contact-card > .MuiTypography-root:not(h2) { color: #9f9991; font-size: 11px; line-height: 1.6; margin: 8px 0 15px; }
+.coco-help__contact-card a { color: #d7b07d; display: block; font-size: 12px; margin-top: 6px; text-decoration: none; }
+.coco-help__faq .MuiAccordion-root { background: transparent; border-bottom: 1px solid #d5cdc3; }
+.coco-help__faq .MuiAccordion-root::before { display: none; }
+.coco-help__faq .MuiAccordionSummary-root { min-height: 62px; padding: 0; }
+.coco-help__faq .MuiAccordionSummary-content { margin: 18px 0; }
+.coco-help__faq .MuiAccordionSummary-content > .MuiTypography-root { font-family: Georgia, "Times New Roman", serif; font-size: 19px; }
+.coco-help__faq .MuiAccordionSummary-expandIconWrapper { color: #9a744c; }
+.coco-help__faq .MuiAccordionSummary-expandIconWrapper.Mui-expanded { transform: rotate(45deg); }
+.coco-help__faq .MuiAccordionDetails-root { padding: 0 42px 22px 0; }
+.coco-help__faq .MuiAccordionDetails-root .MuiTypography-root { color: #766f67; font-size: 13px; line-height: 1.7; }
+@media (max-width:800px) { .coco-help__layout { gap: 48px; grid-template-columns: 1fr; } }
+@media (max-width:600px) { .coco-help { padding: 36px 0 58px; } .coco-help__topics { grid-template-columns: 1fr; margin-bottom: 42px; } .coco-help__faq .MuiAccordionSummary-content > .MuiTypography-root { font-size: 17px; } }

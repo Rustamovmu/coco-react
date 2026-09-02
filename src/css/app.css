@@ -37,3 +37,15 @@
     transform: translateY(0px);
   }
 }
+
+.coco-app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.coco-app-shell__main {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
