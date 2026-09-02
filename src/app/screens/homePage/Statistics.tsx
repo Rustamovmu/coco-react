@@ -1,35 +1,30 @@
 import React from "react";
-import { Box, Container, Stack } from "@mui/material";
-import Divider from "../../components/divider";
+import { Box, Container, Typography } from "@mui/material";
+
+const statistics = [
+  { value: "150+", label: "Curated styles" },
+  { value: "5", label: "Collections" },
+  { value: "48h", label: "Fast dispatch" },
+  { value: "4.9/5", label: "Customer rating" },
+];
 
 export default function Statistics() {
   return (
-    <div className="static-frame">
-      <Container>
-        <Stack className="info">
-          <Stack className="static-box">
-            <Box className="static-num">12</Box>
-            <Box className="static-text">Restaurants</Box>
-          </Stack>
-
-          <Divider height="64" width="2" bg="#E3C08D" />
-
-          <Stack className="static-box">
-            <Box className="static-num">8</Box>
-            <Box className="static-text">Experience</Box>
-          </Stack>
-          <Divider height="64" width="2" bg="#E3C08D" />
-          <Stack className="static-box">
-            <Box className="static-num">50+</Box>
-            <Box className="static-text">Menu</Box>
-          </Stack>
-          <Divider height="64" width="2" bg="#E3C08D" />
-          <Stack className="static-box">
-            <Box className="static-num">200+</Box>
-            <Box className="static-text">Clients</Box>
-          </Stack>
-        </Stack>
+    <Box component="section" className="coco-statistics" aria-label="Coco store highlights">
+      <Container maxWidth="lg">
+        <Box className="coco-statistics__grid">
+          {statistics.map((statistic) => (
+            <Box className="coco-statistics__item" key={statistic.label}>
+              <Typography component="strong" className="coco-statistics__value">
+                {statistic.value}
+              </Typography>
+              <Typography className="coco-statistics__label">
+                {statistic.label}
+              </Typography>
+            </Box>
+          ))}
+        </Box>
       </Container>
-    </div>
+    </Box>
   );
 }

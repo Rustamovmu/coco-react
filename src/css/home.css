@@ -1,3 +1,45 @@
+.coco-statistics {
+  background: #202020;
+  color: #fff;
+  padding: 34px 0;
+}
+
+.coco-statistics__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.coco-statistics__item {
+  align-items: center;
+  border-right: 1px solid rgba(216, 176, 122, 0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  justify-content: center;
+  min-height: 78px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.coco-statistics__item:last-child {
+  border-right: 0;
+}
+
+.coco-statistics__value {
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(25px, 3vw, 36px);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.coco-statistics__label {
+  color: #cfc8c0;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .featured-products {
   background: #faf8f5;
   padding: 88px 0 96px;
@@ -140,6 +182,23 @@
 }
 
 @media (max-width: 560px) {
+  .coco-statistics__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .coco-statistics__item {
+    border-bottom: 1px solid rgba(216, 176, 122, 0.35);
+    min-height: 96px;
+  }
+
+  .coco-statistics__item:nth-child(2) {
+    border-right: 0;
+  }
+
+  .coco-statistics__item:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
   .featured-products {
     padding: 58px 0 64px;
   }
