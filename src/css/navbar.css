@@ -1,1 +1,152 @@
+.coco-header {
+  background: #fff;
+  border-bottom: 1px solid #ece8e2;
+}
 
+.coco-header--transparent {
+  background: transparent;
+  border-bottom: 0;
+}
+
+.coco-header__inner {
+  min-height: 76px;
+  gap: 24px;
+}
+
+.coco-header__brand {
+  color: #202020;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+}
+
+.coco-header__links,
+.coco-header__actions,
+.coco-header__auth,
+.coco-header__account {
+  gap: 18px;
+}
+
+.coco-header__links a {
+  color: #56514b;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.coco-header__links a:hover,
+.coco-header__links .coco-header__link--active {
+  color: #202020;
+  font-weight: 700;
+}
+
+.coco-header__account .MuiTypography-root {
+  font-size: 14px;
+}
+
+.coco-home-header {
+  background: linear-gradient(110deg, #eee4d6 0%, #d2b99b 100%);
+  min-height: 520px;
+}
+
+.coco-home-header__hero {
+  min-height: 444px;
+  max-width: 620px;
+}
+
+.coco-home-header__eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.coco-home-header__title {
+  color: #202020;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1.05;
+  margin: 18px 0;
+}
+
+.coco-home-header__copy {
+  color: #413a33;
+  font-size: 17px;
+}
+
+.coco-cart-menu .MuiMenu-list {
+  padding: 0;
+}
+
+.coco-cart-menu__content {
+  gap: 16px;
+  padding: 20px;
+  width: min(390px, calc(100vw - 32px));
+}
+
+.coco-cart-menu__title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.coco-cart-menu__empty {
+  color: #706a63;
+  padding: 16px 0;
+}
+
+.coco-cart-menu__items {
+  gap: 14px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.coco-cart-menu__image {
+  background: #f2eee8;
+  height: 58px;
+  object-fit: cover;
+  width: 48px;
+}
+
+.coco-cart-menu__item-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.coco-cart-menu__item-details .MuiTypography-root:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.coco-cart-menu__quantity {
+  gap: 6px;
+}
+
+.coco-cart-menu__quantity .MuiButton-root {
+  min-width: 26px;
+  padding: 2px;
+}
+
+.coco-cart-menu__subtotal {
+  border-top: 1px solid #ece8e2;
+  padding-top: 14px;
+}
+
+@media (max-width: 760px) {
+  .coco-header__links {
+    display: none;
+  }
+
+  .coco-header__auth .MuiButton-root:first-child,
+  .coco-header__account .MuiTypography-root {
+    display: none;
+  }
+
+  .coco-home-header {
+    min-height: 430px;
+  }
+
+  .coco-home-header__hero {
+    min-height: 354px;
+  }
+}
