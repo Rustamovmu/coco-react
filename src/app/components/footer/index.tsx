@@ -1,8 +1,7 @@
 import React from "react";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-// @ts-ignore: Allow side-effect CSS import without type declarations
-import "./css/footer.css";
+import "../../../css/footer.css";
 
 const socialLinks = [
   { label: "Instagram", href: "https://www.instagram.com" },

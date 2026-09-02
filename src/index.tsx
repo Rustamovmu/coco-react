@@ -6,6 +6,7 @@ import App from "./app/App";
 import reportWebVitals from "./reportWebVitals";
 import CssBaseline  from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
+import { BrowserRouter } from "react-router-dom";
 import theme from "./app/MaterialTheme"
 // @ts-ignore: Ignore missing type declarations for CSS side-effect import
 import "./css/index.css";
@@ -23,7 +24,9 @@ root.render(
     <Provider store={store}>
        <ThemeProvider theme={theme}>
         <CssBaseline/>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>
