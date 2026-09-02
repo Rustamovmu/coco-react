@@ -379,6 +379,274 @@
   gap: 4px;
 }
 
+.coco-campaign {
+  background: #1f1d1a;
+  color: #f8f4ed;
+  overflow: hidden;
+  padding: 100px 0 110px;
+}
+
+.coco-campaign__header {
+  gap: 40px;
+  margin-bottom: 42px;
+}
+
+.coco-campaign__eyebrow.MuiTypography-root {
+  color: #c9a97d;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.coco-campaign__title.MuiTypography-root {
+  color: #f8f4ed;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 5vw, 64px);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  margin-top: 10px;
+}
+
+.coco-campaign__intro.MuiTypography-root {
+  color: #aaa39a;
+  line-height: 1.7;
+  max-width: 380px;
+}
+
+.coco-campaign__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(310px, 0.75fr);
+  min-height: 610px;
+}
+
+.coco-campaign__film,
+.coco-campaign__slide {
+  overflow: hidden;
+  position: relative;
+}
+
+.coco-campaign__film video {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.coco-campaign__film-shade {
+  background: linear-gradient(180deg, rgba(18, 16, 14, 0.04) 30%, rgba(18, 16, 14, 0.8) 100%);
+  inset: 0;
+  position: absolute;
+}
+
+.coco-campaign__film-copy {
+  bottom: 42px;
+  left: 42px;
+  position: absolute;
+  right: 42px;
+  z-index: 1;
+}
+
+.coco-campaign__film-copy h3.MuiTypography-root {
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 4vw, 54px);
+  font-weight: 400;
+  line-height: 1.05;
+  margin-top: 26px;
+}
+
+.coco-campaign__watch {
+  gap: 12px;
+}
+
+.coco-campaign__watch .MuiTypography-root:first-child {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.coco-campaign__watch .MuiTypography-root:last-child {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 11px;
+}
+
+.coco-campaign__play {
+  align-items: center;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  display: flex;
+  height: 44px;
+  justify-content: center;
+  width: 44px;
+}
+
+.coco-campaign__gallery {
+  background: #f1ece4;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 18px 18px 0;
+}
+
+.coco-campaign__swiper {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+
+.coco-campaign__swiper .swiper-wrapper,
+.coco-campaign__swiper .swiper-slide {
+  height: 100%;
+}
+
+.coco-campaign__slide {
+  height: 100%;
+}
+
+.coco-campaign__slide > img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 5s ease;
+  width: 100%;
+}
+
+.coco-campaign__swiper .swiper-slide-active img {
+  transform: scale(1.055);
+}
+
+.coco-campaign__slide-shade {
+  background: linear-gradient(180deg, transparent 50%, rgba(22, 19, 16, 0.62) 100%);
+  inset: 0;
+  position: absolute;
+}
+
+.coco-campaign__slide-number,
+.coco-campaign__slide-label {
+  color: #fff;
+  position: absolute;
+  z-index: 1;
+}
+
+.coco-campaign__slide-number.MuiTypography-root {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  left: 20px;
+  top: 18px;
+}
+
+.coco-campaign__slide-label.MuiTypography-root {
+  bottom: 24px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  left: 22px;
+}
+
+.coco-campaign__swiper .swiper-pagination {
+  bottom: 13px;
+  left: auto;
+  right: 18px;
+  text-align: right;
+  width: auto;
+}
+
+.coco-campaign__swiper .swiper-pagination-bullet {
+  background: #fff;
+  opacity: 0.48;
+}
+
+.coco-campaign__swiper .swiper-pagination-bullet-active {
+  border-radius: 5px;
+  opacity: 1;
+  width: 20px;
+}
+
+.coco-campaign__footer {
+  min-height: 74px;
+}
+
+.coco-campaign__controls {
+  gap: 8px;
+}
+
+.coco-campaign__controls .MuiIconButton-root {
+  border: 1px solid #cfc5b8;
+  border-radius: 0;
+  color: #28241f;
+  height: 38px;
+  width: 38px;
+}
+
+.coco-campaign__footer > .MuiButton-root {
+  color: #28241f;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 900px) {
+  .coco-campaign__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .coco-campaign__film {
+    min-height: 520px;
+  }
+
+  .coco-campaign__gallery {
+    min-height: 560px;
+  }
+}
+
+@media (max-width: 600px) {
+  .coco-campaign {
+    padding: 72px 0 78px;
+  }
+
+  .coco-campaign__header {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+
+  .coco-campaign__film {
+    min-height: 480px;
+  }
+
+  .coco-campaign__film-copy {
+    bottom: 28px;
+    left: 24px;
+    right: 24px;
+  }
+
+  .coco-campaign__gallery {
+    min-height: 480px;
+    padding: 12px 12px 0;
+  }
+
+  .coco-campaign__slide-label.MuiTypography-root {
+    font-size: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coco-campaign__film video {
+    display: none;
+  }
+
+  .coco-campaign__film {
+    background: url("https://images.pexels.com/videos/7667427/pexels-photo-7667427.jpeg?auto=compress&dpr=1&h=750&w=1260") center / cover;
+  }
+
+  .coco-campaign__slide > img {
+    transition: none;
+  }
+}
+
 .new-arrival-card__views svg {
   font-size: 15px;
 }
