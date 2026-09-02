@@ -14,7 +14,14 @@ export interface OrderPreview {
 
 const formatPrice = (value: number) => `$${value.toFixed(2)}`;
 
-export default function OrderList({ orders, emptyMessage }: { orders: OrderPreview[]; emptyMessage: string }) {
+interface OrderListProps {
+  orders: OrderPreview[];
+  emptyMessage: string;
+  primaryAction?: string;
+  secondaryAction?: string;
+}
+
+export default function OrderList({ orders, emptyMessage, primaryAction, secondaryAction }: OrderListProps) {
   if (!orders.length) return <Box className="coco-orders__empty">{emptyMessage}</Box>;
 
   return (
@@ -43,7 +50,12 @@ export default function OrderList({ orders, emptyMessage }: { orders: OrderPrevi
           </Stack>
           <Stack direction="row" justifyContent="space-between" alignItems="center" className="coco-order-card__bottom">
             <Typography>Total <strong>{formatPrice(order.total)}</strong></Typography>
-            <Button endIcon={<ArrowForwardIcon />}>Order details</Button>
+            <Stack direction="row" className="coco-order-card__actions">
+              {secondaryAction && <Button className="coco-order-card__secondary">{secondaryAction}</Button>}
+              <Button className={primaryAction ? "coco-order-card__primary" : ""} endIcon={<ArrowForwardIcon />}>
+                {primaryAction ?? "Order details"}
+              </Button>
+            </Stack>
           </Stack>
         </Box>
       ))}
