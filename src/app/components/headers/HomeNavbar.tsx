@@ -28,32 +28,32 @@ export default function HomeNavbar(props: StoreNavigationProps) {
         <Box className="coco-home-header__hero">
           <Stack className="coco-home-header__content" justifyContent="center">
             <Typography component="p" className="coco-home-header__eyebrow">
-              THE COCO EDIT
+              NEW SEASON · 2026
             </Typography>
             <Typography component="h1" className="coco-home-header__title">
-              Quiet confidence,<br />thoughtfully worn.
+              Dress with<br />intention.
             </Typography>
             <Typography className="coco-home-header__copy">
-              Refined silhouettes, comfortable layers, and timeless pieces
-              designed for an effortless modest wardrobe.
+              Modern modestwear shaped by clean lines, graceful coverage, and
+              pieces you will reach for season after season.
             </Typography>
             <Stack direction="row" className="coco-home-header__buttons">
               <Button component={Link} to="/products" variant="contained" endIcon={<ArrowForwardIcon />}>
-                Shop collection
+                Explore collection
               </Button>
-              <Button component={Link} to="/help" variant="text">
-                Our approach
+              <Button component={Link} to="/products" variant="outlined">
+                View new arrivals
               </Button>
             </Stack>
           </Stack>
 
           <Box className="coco-home-header__note">
-            <Typography className="coco-home-header__note-number">01</Typography>
-            <Typography component="h2">Considered essentials</Typography>
-            <Typography>
-              Soft structure, graceful coverage, and a neutral palette made to
-              move through every season.
-            </Typography>
+            <Typography className="coco-home-header__note-number">COCO / 01</Typography>
+            <Typography component="h2">The quiet collection</Typography>
+            <Typography>Natural tones · considered layers · timeless form</Typography>
+          </Box>
+          <Box className="coco-home-header__scroll" aria-hidden="true">
+            <span /> Discover
           </Box>
         </Box>
       </Container>
