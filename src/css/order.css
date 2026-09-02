@@ -1,1 +1,51 @@
-
+.coco-orders { background: #f7f3ed; flex: 1; padding: 52px 0 78px; }
+.coco-orders__heading { gap: 30px; margin-bottom: 30px; }
+.coco-orders__eyebrow.MuiTypography-root { color: #9a744c; font-size: 10px; font-weight: 700; letter-spacing: .2em; }
+.coco-orders__heading h1.MuiTypography-root { color: #23201d; font-family: Georgia, "Times New Roman", serif; font-size: 46px; font-weight: 400; line-height: 1; margin-top: 7px; }
+.coco-orders__heading > .MuiTypography-root { color: #7b746c; font-size: 12px; max-width: 340px; }
+.coco-orders__layout { align-items: start; display: grid; gap: 24px; grid-template-columns: minmax(0,1fr) 280px; }
+.coco-orders__main { background: #fff; min-width: 0; }
+.coco-orders__tabs { border-bottom: 1px solid #e3ddd5; padding: 0 20px; }
+.coco-orders__tabs .MuiTab-root { color: #817970; font-size: 11px; font-weight: 700; letter-spacing: .05em; min-height: 58px; padding: 12px 20px; text-transform: none; }
+.coco-orders__tabs .Mui-selected { color: #25211e; }
+.coco-orders__tabs .MuiTabs-indicator { background: #9a744c; }
+.coco-orders__tabs b { align-items: center; background: #eee7de; border-radius: 50%; color: #796551; display: inline-flex; font-size: 9px; height: 19px; justify-content: center; margin-left: 8px; width: 19px; }
+.coco-orders__content { padding: 22px; }
+.coco-order-list { gap: 18px; }
+.coco-order-card { border: 1px solid #ded7cf; }
+.coco-order-card__top { padding: 18px 20px 14px; }
+.coco-order-card__top h2.MuiTypography-root { font-family: Georgia, "Times New Roman", serif; font-size: 19px; }
+.coco-order-card__top div > .MuiTypography-root { color: #8a827a; font-size: 10px; margin-top: 3px; }
+.coco-order-card__status.MuiChip-root { border-radius: 0; font-size: 9px; font-weight: 700; height: 26px; letter-spacing: .06em; text-transform: uppercase; }
+.coco-order-card__status--warm { background: #eee0cd; color: #795b35; }
+.coco-order-card__status--dark { background: #282521; color: #fff; }
+.coco-order-card__status--success { background: #dce7d8; color: #52644d; }
+.coco-order-card__progress { background: #eeeae5; height: 2px; }
+.coco-order-card__progress span { background: #a7825a; display: block; height: 100%; }
+.coco-order-card__items { padding: 4px 20px; }
+.coco-order-item { border-bottom: 1px solid #eee9e3; gap: 15px; padding: 13px 0; }
+.coco-order-item:last-child { border-bottom: 0; }
+.coco-order-item > img { background: #eee9e2; height: 74px; object-fit: cover; width: 60px; }
+.coco-order-item__copy { flex: 1; min-width: 0; }
+.coco-order-item__copy h3.MuiTypography-root { font-size: 13px; font-weight: 700; }
+.coco-order-item__copy > .MuiTypography-root { color: #8a827a; font-size: 10px; margin-top: 5px; }
+.coco-order-item__price.MuiTypography-root { font-family: Georgia, "Times New Roman", serif; font-size: 15px; }
+.coco-order-card__bottom { background: #faf8f5; border-top: 1px solid #e6e0d9; min-height: 52px; padding: 7px 14px 7px 20px; }
+.coco-order-card__bottom > .MuiTypography-root { color: #827a72; font-size: 11px; }
+.coco-order-card__bottom strong { color: #27231f; font-family: Georgia, "Times New Roman", serif; font-size: 16px; margin-left: 7px; }
+.coco-order-card__bottom .MuiButton-root { color: #28241f; font-size: 10px; font-weight: 700; }
+.coco-orders__aside { background: #252320; color: #fff; position: sticky; top: 20px; }
+.coco-orders__member { align-items: center; display: flex; gap: 13px; padding: 22px; }
+.coco-orders__avatar { align-items: center; background: #d0ac7c; border-radius: 50%; color: #252320; display: flex; font-family: Georgia, "Times New Roman", serif; font-size: 24px; height: 50px; justify-content: center; width: 50px; }
+.coco-orders__member h2.MuiTypography-root { color: #fff; font-family: Georgia, "Times New Roman", serif; font-size: 20px; }
+.coco-orders__member div > .MuiTypography-root, .coco-orders__address div > .MuiTypography-root { color: #98928b; font-size: 10px; margin-top: 3px; }
+.coco-orders__address { border-bottom: 1px solid rgba(255,255,255,.12); border-top: 1px solid rgba(255,255,255,.12); display: flex; gap: 12px; padding: 18px 22px; }
+.coco-orders__address svg { color: #c8a578; font-size: 19px; }
+.coco-orders__address h3.MuiTypography-root { color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+.coco-orders__delivery-note { padding: 22px; }
+.coco-orders__delivery-note svg { color: #c8a578; font-size: 24px; }
+.coco-orders__delivery-note h3.MuiTypography-root { color: #fff; font-family: Georgia, "Times New Roman", serif; font-size: 18px; margin: 12px 0 7px; }
+.coco-orders__delivery-note > .MuiTypography-root { color: #98928b; font-size: 10px; line-height: 1.6; }
+.coco-orders__empty { color: #817970; padding: 50px 20px; text-align: center; }
+@media (max-width:800px) { .coco-orders__layout { grid-template-columns: 1fr; } .coco-orders__aside { position: static; width: 100%; } }
+@media (max-width:600px) { .coco-orders { padding: 36px 0 54px; } .coco-orders__heading { align-items: flex-start; flex-direction: column; } .coco-orders__heading h1.MuiTypography-root { font-size: 38px; } .coco-orders__tabs { padding: 0; } .coco-orders__tabs .MuiTab-root { min-width: 0; padding: 10px 7px; } .coco-orders__content { padding: 12px; } .coco-order-card__top { align-items: flex-start; gap: 12px; } .coco-order-item > img { height: 64px; width: 50px; } }
