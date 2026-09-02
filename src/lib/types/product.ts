@@ -25,7 +25,8 @@ export interface Product {
 }
 
 export interface ProductInquiry {
-    order?: "asc" | "desc";
+    order?: "createdAt" | "productViews" | "productPrice";
+    sort?: "asc" | "desc";
     page: number;
     limit: number;
     productCollection?: ProductCollection;

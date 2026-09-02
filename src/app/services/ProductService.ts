@@ -16,6 +16,7 @@ class ProductService {
     });
 
     if (input.order) params.set("order", input.order);
+    if (input.sort) params.set("sort", input.sort);
     if (input.productCollection) {
       params.set("productCollection", input.productCollection);
     }
