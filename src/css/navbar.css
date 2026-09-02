@@ -314,6 +314,53 @@
   padding-top: 14px;
 }
 
+.coco-inner-header__banner {
+  align-items: flex-end;
+  display: flex;
+  height: 190px;
+  overflow: hidden;
+  position: relative;
+}
+
+.coco-inner-header__image {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: center 52%;
+  position: absolute;
+  transform: scale(1.01);
+  width: 100%;
+}
+
+.coco-inner-header__shade {
+  background: linear-gradient(90deg, rgba(24, 21, 18, 0.76) 0%, rgba(24, 21, 18, 0.3) 48%, rgba(24, 21, 18, 0.12) 100%);
+  inset: 0;
+  position: absolute;
+}
+
+.coco-inner-header__content {
+  color: #fff;
+  padding-bottom: 27px;
+  position: relative;
+  z-index: 1;
+}
+
+.coco-inner-header__eyebrow.MuiTypography-root {
+  color: #dfc39d;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  margin-bottom: 5px;
+}
+
+.coco-inner-header__title.MuiTypography-root {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+
 @media (max-width: 760px) {
   .coco-header__links {
     display: none;
@@ -350,6 +397,14 @@
 
   .coco-home-header__buttons .MuiButton-root {
     width: 100%;
+  }
+
+  .coco-inner-header__banner {
+    height: 140px;
+  }
+
+  .coco-inner-header__content {
+    padding-bottom: 20px;
   }
 }
 
