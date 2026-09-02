@@ -647,6 +647,265 @@
   }
 }
 
+.coco-community {
+  background: #f7f3ed;
+  padding: 92px 0 105px;
+}
+
+.coco-community__header {
+  gap: 40px;
+  margin-bottom: 38px;
+}
+
+.coco-community__eyebrow.MuiTypography-root,
+.coco-community__roster-label.MuiTypography-root {
+  color: #9a744c;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.coco-community__title.MuiTypography-root {
+  color: #211f1c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  margin-top: 10px;
+}
+
+.coco-community__intro.MuiTypography-root {
+  color: #756e66;
+  line-height: 1.7;
+  max-width: 390px;
+}
+
+.coco-community__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(370px, 0.92fr);
+  min-height: 535px;
+}
+
+.coco-community__featured {
+  background: #c9c0b6;
+  overflow: hidden;
+  position: relative;
+}
+
+.coco-community__featured > img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center 34%;
+  transition: transform 600ms ease;
+  width: 100%;
+}
+
+.coco-community__featured:hover > img {
+  transform: scale(1.025);
+}
+
+.coco-community__featured-shade {
+  background: linear-gradient(180deg, rgba(17, 15, 13, 0.03) 35%, rgba(17, 15, 13, 0.72) 100%);
+  inset: 0;
+  position: absolute;
+}
+
+.coco-community__featured-label.MuiTypography-root {
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 10px;
+  left: 26px;
+  letter-spacing: 0.16em;
+  position: absolute;
+  top: 24px;
+}
+
+.coco-community__featured-copy {
+  bottom: 34px;
+  color: #fff;
+  left: 34px;
+  position: absolute;
+  z-index: 1;
+}
+
+.coco-community__featured-copy h3.MuiTypography-root {
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 45px;
+  line-height: 1;
+  margin: 14px 0 8px;
+}
+
+.coco-community__featured-copy > .MuiTypography-root {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+}
+
+.coco-community__online {
+  color: #fff;
+  font-size: 10px;
+  gap: 8px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.coco-community__online span,
+.coco-member-row__image span {
+  background: #b7df9a;
+  border: 2px solid rgba(255, 255, 255, 0.72);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(183, 223, 154, 0.18);
+  height: 8px;
+  width: 8px;
+}
+
+.coco-community__roster {
+  background: #252320;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 44px 42px 34px;
+}
+
+.coco-community__roster-label.MuiTypography-root {
+  color: #c9a97d;
+}
+
+.coco-community__roster-title.MuiTypography-root {
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  font-weight: 400;
+  margin: 8px 0 20px;
+}
+
+.coco-community__members {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.coco-member-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  gap: 16px;
+  padding: 17px 0;
+}
+
+.coco-member-row__image {
+  flex: 0 0 60px;
+  height: 60px;
+  position: relative;
+}
+
+.coco-member-row__image img {
+  border-radius: 50%;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.coco-member-row__image span {
+  bottom: 2px;
+  position: absolute;
+  right: 2px;
+}
+
+.coco-member-row__details {
+  flex: 1;
+  min-width: 0;
+}
+
+.coco-member-row__details h4.MuiTypography-root {
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+}
+
+.coco-member-row__details > .MuiTypography-root,
+.coco-member-row__meta .MuiTypography-root:last-child {
+  color: #9d968e;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.coco-member-row__meta {
+  text-align: right;
+}
+
+.coco-member-row__meta .MuiTypography-root:first-child {
+  color: #c9a97d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+}
+
+.coco-member-row__meta .MuiTypography-root:last-child {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.coco-community__live-note {
+  gap: 13px;
+  margin-top: auto;
+  padding-top: 25px;
+}
+
+.coco-community__avatars {
+  display: flex;
+  padding-left: 8px;
+}
+
+.coco-community__avatars img {
+  border: 2px solid #252320;
+  border-radius: 50%;
+  height: 28px;
+  margin-left: -8px;
+  object-fit: cover;
+  width: 28px;
+}
+
+.coco-community__live-note > .MuiTypography-root {
+  color: #aaa39b;
+  font-size: 11px;
+}
+
+@media (max-width: 900px) {
+  .coco-community__panel {
+    grid-template-columns: 1fr;
+  }
+
+  .coco-community__featured {
+    min-height: 560px;
+  }
+}
+
+@media (max-width: 600px) {
+  .coco-community {
+    padding: 68px 0 74px;
+  }
+
+  .coco-community__header {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 28px;
+  }
+
+  .coco-community__featured {
+    min-height: 440px;
+  }
+
+  .coco-community__featured-copy {
+    bottom: 26px;
+    left: 24px;
+  }
+
+  .coco-community__roster {
+    padding: 34px 24px 28px;
+  }
+
+  .coco-member-row__image {
+    flex-basis: 52px;
+    height: 52px;
+  }
+}
+
 .new-arrival-card__views svg {
   font-size: 15px;
 }
