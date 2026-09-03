@@ -60,6 +60,20 @@
   font-size: 14px;
 }
 
+.coco-header__avatar-button.MuiIconButton-root {
+  padding: 0;
+}
+
+.coco-header__avatar-button .MuiAvatar-root {
+  border: 1px solid rgba(89, 80, 71, 0.3);
+  height: 34px;
+  width: 34px;
+}
+
+.coco-home-header .coco-header__avatar-button .MuiAvatar-root {
+  border-color: rgba(255, 255, 255, 0.62);
+}
+
 .coco-home-header {
   background: #27221d;
   border-bottom: 0;
@@ -367,7 +381,7 @@
   }
 
   .coco-header__auth .MuiButton-root:first-child,
-  .coco-header__account .MuiTypography-root {
+  .coco-header__account .coco-header__member-name {
     display: none;
   }
 
