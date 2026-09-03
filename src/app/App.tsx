@@ -45,10 +45,19 @@ function App() {
   const cart = useCart();
   const [authMember, setAuthMember] = useState<Member | null>(readStoredMember);
   const [signupOpen, setSignupOpen] = useState(false);
+  const [loginOpen, setLoginOpen] = useState(false);
   const openSignup = useCallback(() => {
+    setLoginOpen(false);
     setSignupOpen(true);
   }, []);
-  const closeSignup = useCallback(() => setSignupOpen(false), []);
+  const openLogin = useCallback(() => {
+    setSignupOpen(false);
+    setLoginOpen(true);
+  }, []);
+  const closeAuthentication = useCallback(() => {
+    setSignupOpen(false);
+    setLoginOpen(false);
+  }, []);
 
   const handleAuthenticated = useCallback((member: Member) => {
     localStorage.setItem(MEMBER_STORAGE_KEY, JSON.stringify(member));
@@ -68,6 +77,7 @@ function App() {
   const navigationProps = {
     authMember,
     cart,
+    onLogin: openLogin,
     onSignup: openSignup,
     onLogout: handleLogout,
   };
@@ -86,8 +96,11 @@ function App() {
       </main>
       <Footer />
       <AuthenticationModal
-        open={signupOpen}
-        onClose={closeSignup}
+        open={signupOpen || loginOpen}
+        mode={signupOpen ? "signup" : "login"}
+        onClose={closeAuthentication}
+        onRequestSignup={openSignup}
+        onRequestLogin={openLogin}
         onAuthenticated={handleAuthenticated}
       />
     </div>

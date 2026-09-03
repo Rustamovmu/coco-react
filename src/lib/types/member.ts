@@ -28,7 +28,7 @@ export interface MemberInput {
 }
 
 export interface LoginInput {
-    memberEmail: string;
+    memberNick: string;
     memberPassword: string;
 }
 
