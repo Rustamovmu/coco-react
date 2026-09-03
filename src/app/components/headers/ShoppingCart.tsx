@@ -97,7 +97,12 @@ function CartRow({ item, cart }: { item: CartItem; cart: CartInterface }) {
       <Stack direction="row" alignItems="center" className="coco-cart-menu__quantity">
         <Button aria-label={`Remove one ${item.productName}`} onClick={() => cart.onRemove(item)}>-</Button>
         <span>{item.quantity}</span>
-        <Button aria-label={`Add one ${item.productName}`} onClick={() => cart.onAdd(item)}>+</Button>
+        <Button
+          aria-label={`Add one ${item.productName}`}
+          onClick={() => cart.onAdd({ ...item, quantity: 1 })}
+        >
+          +
+        </Button>
       </Stack>
       <IconButton aria-label={`Remove ${item.productName}`} size="small" onClick={() => cart.onDelete(item)}>
         <CloseIcon fontSize="small" />

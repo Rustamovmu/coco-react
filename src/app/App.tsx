@@ -9,16 +9,18 @@ import { HelpPage } from "./screens/helpPage";
 import HomeNavbar from "./components/headers/HomeNavbar";
 import OtherNavbar  from "./components/headers/OtherNavbar";
 import Footer  from "./components/footer";
+import useCart from "./hooks/useCart";
 
 function App() {
   const location = useLocation();
+  const cart = useCart();
   return ( 
     <div className="coco-app-shell">
-      {location.pathname === "/" ? <HomeNavbar/> : <OtherNavbar/>}
+      {location.pathname === "/" ? <HomeNavbar cart={cart} /> : <OtherNavbar cart={cart} />}
       <main className="coco-app-shell__main">
         <Switch>
           <Route path="/products">
-            <ProductsPage/>
+            <ProductsPage cart={cart}/>
           </Route>
           <Route path="/orders">
             <OrdersPage/>
