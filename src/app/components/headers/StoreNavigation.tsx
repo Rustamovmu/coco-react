@@ -20,6 +20,7 @@ export interface StoreNavigationProps {
 
 export default function StoreNavigation({ authMember, cart, onLogin, onSignup, onLogout, onCheckout, transparent = false }: StoreNavigationProps) {
   const [accountAnchor, setAccountAnchor] = useState<HTMLElement | null>(null);
+  const memberName = authMember?.memberName || "Member";
   const memberImage = authMember?.memberImage
     ? (authMember.memberImage.startsWith("http") ? authMember.memberImage : `${serverApi}/${authMember.memberImage}`)
     : "/icons/default-user.svg";
@@ -40,7 +41,7 @@ export default function StoreNavigation({ authMember, cart, onLogin, onSignup, o
             {cart && <ShoppingCart cart={cart} onCheckout={onCheckout} />}
             {authMember ? (
               <Stack direction="row" alignItems="center" className="coco-header__account">
-                <Typography className="coco-header__member-name">{authMember.memberName}</Typography>
+                <Typography className="coco-header__member-name">{memberName}</Typography>
                 <IconButton
                   className="coco-header__avatar-button"
                   aria-label="Open account menu"
@@ -49,7 +50,7 @@ export default function StoreNavigation({ authMember, cart, onLogin, onSignup, o
                   aria-haspopup="true"
                   onClick={(event) => setAccountAnchor(event.currentTarget)}
                 >
-                  <Avatar src={memberImage} alt={authMember.memberName}>{authMember.memberName.charAt(0)}</Avatar>
+                  <Avatar src={memberImage} alt={memberName}>{memberName.charAt(0)}</Avatar>
                 </IconButton>
                 <Menu
                   anchorEl={accountAnchor}
@@ -72,7 +73,7 @@ export default function StoreNavigation({ authMember, cart, onLogin, onSignup, o
               </Stack>
             ) : (
               <Stack direction="row" className="coco-header__auth">
-                <Button onClick={onLogin}>Log in</Button>
+                {onLogin && <Button onClick={onLogin}>Log in</Button>}
                 <Button variant="contained" onClick={onSignup}>Sign up</Button>
               </Stack>
             )}
