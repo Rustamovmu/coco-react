@@ -37,8 +37,8 @@ export default function AuthenticationModal({ open, mode, onClose, onRequestSign
     event.preventDefault();
     setError("");
 
-    if (!form.password || (isSignup && (!form.name.trim() || !form.email.trim())) || (!isSignup && !form.nickname.trim())) {
-      setError(isSignup ? "Enter your name, email, and password to create an account." : "Enter your nickname and password to sign in.");
+    if (!form.password || (isSignup && (!form.name.trim() || !form.phone.trim())) || (!isSignup && !form.nickname.trim())) {
+      setError(isSignup ? "Enter your name, phone number, and password to create an account." : "Enter your nickname and password to sign in.");
       return;
     }
 
@@ -48,7 +48,12 @@ export default function AuthenticationModal({ open, mode, onClose, onRequestSign
       let member: Member;
 
       if (isSignup) {
-        const signupInput: MemberInput = { memberName: form.name.trim(), memberEmail: form.email.trim(), memberPhone: form.phone.trim() || undefined, memberPassword: form.password };
+        const signupInput: MemberInput = {
+          memberName: form.name.trim(),
+          memberEmail: form.email.trim() || undefined,
+          memberPhone: form.phone.trim(),
+          memberPassword: form.password,
+        };
         member = await service.signup(signupInput);
       } else {
         const loginInput: LoginInput = { memberNick: form.nickname.trim(), memberPassword: form.password };
@@ -75,8 +80,8 @@ export default function AuthenticationModal({ open, mode, onClose, onRequestSign
         </Box>
         {error && <Alert severity="error">{error}</Alert>}
         {isSignup && <TextField required label="Full name" value={form.name} onChange={update("name")} autoComplete="name" autoFocus />}
-        {isSignup ? <TextField required label="Email address" type="email" value={form.email} onChange={update("email")} autoComplete="email" /> : <TextField required label="Nickname" value={form.nickname} onChange={update("nickname")} autoComplete="username" autoFocus />}
-        {isSignup && <TextField label="Phone number (optional)" type="tel" value={form.phone} onChange={update("phone")} autoComplete="tel" />}
+        {isSignup ? <TextField label="Email address (optional)" type="email" value={form.email} onChange={update("email")} autoComplete="email" /> : <TextField required label="Nickname" value={form.nickname} onChange={update("nickname")} autoComplete="username" autoFocus />}
+        {isSignup && <TextField required label="Phone number" type="tel" value={form.phone} onChange={update("phone")} autoComplete="tel" />}
         <TextField required label="Password" type="password" value={form.password} onChange={update("password")} autoComplete={isSignup ? "new-password" : "current-password"} />
         <Button type="submit" variant="contained" disabled={submitting} startIcon={isSignup ? <PersonAddAltIcon /> : <LoginIcon />} sx={{ bgcolor: "#27231f", minHeight: 48, textTransform: "none", "&:hover": { bgcolor: "#151310" } }}>{submitting ? "Please wait…" : isSignup ? "Create account" : "Sign in"}</Button>
         <Typography align="center" sx={{ color: "#706a63", fontSize: 13 }}>{isSignup ? "Already have an account?" : "New to Coco?"}{" "}<Button onClick={isSignup ? onRequestLogin : onRequestSignup} sx={{ color: "#6f4e2d", fontSize: 13, minWidth: 0, p: 0, textTransform: "none", textDecoration: "underline" }}>{isSignup ? "Sign in" : "Create an account"}</Button></Typography>

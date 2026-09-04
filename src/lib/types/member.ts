@@ -19,9 +19,9 @@ export interface MemberInput {
     memberType?: MemberType;
     memberStatus?: MemberStatus;
     memberName: string;
-    memberEmail: string;
+    memberEmail?: string;
     memberPassword: string;
-    memberPhone?: string;
+    memberPhone: string;
     memberImage?: string;
     memberAddress?: string;
     memberPoints?: number;
