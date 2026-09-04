@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import { Link } from "react-router-dom";
 import { ProductCollection } from "../../../lib/enums/product.enum";
 
@@ -60,13 +61,27 @@ const formatPrice = (price: number) =>
 export default function FeaturedProducts() {
   return (
     <Box component="section" className="featured-products">
+      <Box className="featured-products__backdrop" aria-hidden="true">
+        <span className="featured-products__shape" />
+        <span className="featured-products__wordmark">FEATURED</span>
+      </Box>
       <Container maxWidth="lg">
         <Stack direction="row" justifyContent="space-between" alignItems="end" className="featured-products__header">
           <Box>
-            <Typography className="featured-products__eyebrow">CURATED FOR COCO</Typography>
+            <Typography className="featured-products__eyebrow">Curated for COCO</Typography>
             <Typography component="h2" className="featured-products__title">Featured products</Typography>
+            <Typography className="featured-products__intro">
+              Everyday pieces selected for their form, feel, and lasting appeal.
+            </Typography>
           </Box>
-          <Button component={Link} to="/products" className="featured-products__view-all">Shop all</Button>
+          <Button
+            component={Link}
+            to="/products"
+            className="featured-products__view-all"
+            endIcon={<ArrowForwardRoundedIcon />}
+          >
+            Shop all
+          </Button>
         </Stack>
 
         <Box className="featured-products__grid">
@@ -86,12 +101,15 @@ function ProductCard({ product }: { product: FeaturedProduct }) {
       <Box className="featured-product-card__media">
         <img src={product.productImage} alt={product.productName} loading="lazy" />
         {hasDiscount && <span className="featured-product-card__badge">Sale</span>}
+        <span className="featured-product-card__open" aria-hidden="true">
+          <ArrowForwardRoundedIcon />
+        </span>
       </Box>
       <Stack spacing={0.5} className="featured-product-card__content">
         <Stack direction="row" justifyContent="space-between" alignItems="start">
           <Typography className="featured-product-card__name">{product.productName}</Typography>
-          <Stack direction="row" alignItems="center" className="featured-product-card__views">
-            <VisibilityOutlinedIcon /> {product.productViews}
+          <Stack direction="row" alignItems="center" className="featured-product-card__views" aria-label={`${product.productViews} views`}>
+            <VisibilityOutlinedIcon aria-hidden="true" /> {product.productViews}
           </Stack>
         </Stack>
         <Typography className="featured-product-card__collection">
