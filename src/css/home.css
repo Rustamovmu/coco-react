@@ -740,6 +740,115 @@
   letter-spacing: 0.04em;
 }
 
+/* Keep the three editorial product sections within a standard desktop viewport
+   at 100% browser zoom, while allowing smaller screens to stack naturally. */
+@media (min-width: 981px) {
+  .featured-products {
+    padding: clamp(38px, 5.5vh, 58px) 0 clamp(42px, 6vh, 64px);
+  }
+
+  .featured-products__header {
+    margin-bottom: clamp(22px, 3.5vh, 32px);
+  }
+
+  .featured-products__title {
+    font-size: clamp(32px, 3vw, 42px);
+  }
+
+  .featured-products__intro.MuiTypography-root {
+    margin-top: 8px;
+  }
+
+  .featured-product-card__media,
+  .featured-product-card__skeleton {
+    aspect-ratio: auto;
+    height: clamp(245px, 39vh, 320px);
+  }
+
+  .featured-product-card__content {
+    padding: 13px 14px 14px;
+  }
+
+  .new-arrivals {
+    padding: clamp(40px, 5.5vh, 58px) 0 clamp(44px, 6vh, 64px);
+  }
+
+  .new-arrivals__header {
+    margin-bottom: clamp(22px, 3.5vh, 30px);
+  }
+
+  .new-arrivals__title {
+    font-size: clamp(32px, 3vw, 42px);
+    margin: 6px 0 7px;
+  }
+
+  .new-arrivals__intro {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .new-arrival-card--2,
+  .new-arrival-card--4 {
+    margin-top: clamp(12px, 2.5vh, 22px);
+  }
+
+  .new-arrival-card__media,
+  .new-arrival-card__skeleton {
+    aspect-ratio: auto;
+    height: clamp(260px, 42vh, 345px);
+  }
+
+  .new-arrival-card__body {
+    padding-top: 10px;
+  }
+
+  .new-arrival-card__body.MuiStack-root {
+    gap: 5px;
+  }
+
+  .coco-campaign {
+    padding: clamp(38px, 5vh, 52px) 0 clamp(42px, 5.5vh, 58px);
+  }
+
+  .coco-campaign__header {
+    margin-bottom: clamp(22px, 3.5vh, 30px);
+  }
+
+  .coco-campaign__title.MuiTypography-root {
+    font-size: clamp(38px, 4vw, 52px);
+    margin-top: 7px;
+  }
+
+  .coco-campaign__intro.MuiTypography-root {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .coco-campaign__layout {
+    min-height: 0;
+    height: clamp(400px, 58vh, 490px);
+  }
+
+  .coco-campaign__film-copy {
+    bottom: 28px;
+    left: 30px;
+    right: 30px;
+  }
+
+  .coco-campaign__film-copy h3.MuiTypography-root {
+    font-size: clamp(30px, 3vw, 43px);
+    margin-top: 18px;
+  }
+
+  .coco-campaign__gallery {
+    padding: 14px 14px 0;
+  }
+
+  .coco-campaign__footer {
+    min-height: 58px;
+  }
+}
+
 @media (max-width: 900px) {
   .coco-campaign__layout {
     grid-template-columns: 1fr;

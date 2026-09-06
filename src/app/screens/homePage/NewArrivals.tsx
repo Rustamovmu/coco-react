@@ -23,7 +23,7 @@ export default function NewArrivals({ loading, error }: NewArrivalsProps) {
           <Button component={Link} to="/products" endIcon={<ArrowForwardIcon />}>Explore the collection</Button>
         </Stack>
 
-        {loading && <Box className="new-arrivals__grid">{[1, 2, 3, 4].map((item) => <Skeleton key={item} variant="rectangular" sx={{ aspectRatio: "3 / 4" }} />)}</Box>}
+        {loading && <Box className="new-arrivals__grid">{[1, 2, 3, 4].map((item) => <Skeleton key={item} variant="rectangular" className="new-arrival-card__skeleton" />)}</Box>}
         {!loading && error && <Typography className="featured-products__message">{error}</Typography>}
         {!loading && !error && !products.length && <Typography className="featured-products__message">No new arrivals are available yet.</Typography>}
         {!loading && !error && products.length > 0 && <Box className="new-arrivals__grid">
