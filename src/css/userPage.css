@@ -40,6 +40,16 @@
 .coco-settings__fields .Mui-focused .MuiOutlinedInput-notchedOutline { border-color: #a7825a; }
 .coco-settings__fields .MuiInputLabel-root { color: #817970; font-size: 12px; }
 .coco-settings__preferences { background: #faf8f5; border: 1px solid #e8e1d9; padding: 18px; }
+.coco-settings__payment { border-top: 1px solid #e6dfd7; margin-top: 28px; padding-top: 24px; }
+.coco-settings__payment > h3.MuiTypography-root { color: #292520; font-family: Georgia, "Times New Roman", serif; font-size: 20px; }
+.coco-settings__payment > .MuiTypography-root { color: #837b73; font-size: 11px; margin: 5px 0 18px; }
+.coco-payment-form { display: flex; flex-direction: column; gap: 14px; }
+.coco-payment-form__fields { display: grid; gap: 14px; grid-template-columns: repeat(2,minmax(0,1fr)); }
+.coco-payment-form__fields .MuiOutlinedInput-root { border-radius: 0; }
+.coco-payment-form__saved.MuiTypography-root { align-items: center; color: #56704e; display: flex; font-size: 11px; gap: 7px; }
+.coco-payment-form__saved svg { font-size: 18px; }
+.coco-payment-form__note.MuiTypography-root { color: #837b73; font-size: 10px; }
+.coco-payment-form > .MuiButton-contained { align-self: flex-end; background: #28241f; border-radius: 0; }
 .coco-settings__preferences h3.MuiTypography-root { font-size: 18px; margin-bottom: 14px; }
 .coco-settings__preferences .MuiStack-root > div > .MuiTypography-root:first-child { color: #312c27; font-size: 12px; font-weight: 700; }
 .coco-settings__preferences .MuiStack-root > div > .MuiTypography-root:last-child { color: #837b73; font-size: 10px; margin-top: 3px; max-width: 370px; }
@@ -52,4 +62,4 @@
 .coco-settings__actions .MuiButton-root { color: #766a60; font-size: 11px; font-weight: 700; }
 .coco-settings__actions .MuiButton-contained { background: #28241f; border-radius: 0; color: #fff; padding: 9px 16px; }
 @media (max-width:800px) { .coco-account__layout { grid-template-columns: 1fr; } .coco-account__sidebar { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); } .coco-account__nav { border-bottom: 0; } .coco-account__membership { border-left: 1px solid rgba(255,255,255,.1); } }
-@media (max-width:600px) { .coco-account { padding: 36px 0 54px; } .coco-account__heading { align-items: flex-start; flex-direction: column; } .coco-account__heading h1.MuiTypography-root { font-size: 38px; } .coco-account__sidebar { display: block; } .coco-account__membership { border-left: 0; border-top: 1px solid rgba(255,255,255,.1); } .coco-settings { padding: 24px 18px; } .coco-settings__title { align-items: flex-start; flex-direction: column; } .coco-settings__fields { grid-template-columns: 1fr; } .coco-settings__preferences .MuiStack-root { align-items: flex-start; flex-direction: column; gap: 12px; } }
+@media (max-width:600px) { .coco-account { padding: 36px 0 54px; } .coco-account__heading { align-items: flex-start; flex-direction: column; } .coco-account__heading h1.MuiTypography-root { font-size: 38px; } .coco-account__sidebar { display: block; } .coco-account__membership { border-left: 0; border-top: 1px solid rgba(255,255,255,.1); } .coco-settings { padding: 24px 18px; } .coco-settings__title { align-items: flex-start; flex-direction: column; } .coco-settings__fields, .coco-payment-form__fields { grid-template-columns: 1fr; } .coco-settings__preferences .MuiStack-root { align-items: flex-start; flex-direction: column; gap: 12px; } }

@@ -1,5 +1,6 @@
 import { SyntheticEvent, useCallback, useEffect, useState } from "react";
-import { Alert, Box, CircularProgress, Container, Stack, Tab, Tabs, Typography } from "@mui/material";
+import { Alert, Box, CircularProgress, Container, Dialog, DialogContent, DialogTitle, IconButton, Stack, Tab, Tabs, Typography } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import PausedOrders from "./PausedOrders";
@@ -11,7 +12,9 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import { resetOrders, setCompletedOrders, setPendingOrders, setProcessingOrders } from "./slice";
 import { selectOrderCounts } from "./selector";
 import { Member } from "../../../lib/types/member";
-import { sweetErrorHandling } from "../../../lib/sweetAlert";
+import { sweetErrorHandling, sweetTopSmallSuccessAlert } from "../../../lib/sweetAlert";
+import PaymentDetailsForm from "../../components/payment/PaymentDetailsForm";
+import { getPaymentMethod, PaymentMethod, savePaymentMethod } from "../../../lib/payment";
 import "../../../css/order.css";
 
 interface OrdersPageProps { authMember: Member | null; }
@@ -22,6 +25,9 @@ export function OrdersPage({ authMember }: OrdersPageProps) {
   const [value, setValue] = useState("progress");
   const [loading, setLoading] = useState(Boolean(authMember));
   const [error, setError] = useState("");
+  const [paymentOrderId, setPaymentOrderId] = useState<string | null>(null);
+  const [completing, setCompleting] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState(() => authMember ? getPaymentMethod(authMember._id) : null);
 
   const loadOrders = useCallback(async () => {
     if (!authMember) {
@@ -54,6 +60,29 @@ export function OrdersPage({ authMember }: OrdersPageProps) {
     }
   };
 
+  const completeOrder = async (orderId: string, method: PaymentMethod) => {
+    if (!authMember) return;
+    setCompleting(true);
+    try {
+      savePaymentMethod(authMember._id, method);
+      setPaymentMethod(method);
+      await new OrderService().updateOrder({ orderId, orderStatus: OrderStatus.PAID });
+      setPaymentOrderId(null);
+      setValue("progress");
+      await loadOrders();
+      await sweetTopSmallSuccessAlert("Order completed successfully");
+    } catch (requestError) {
+      await sweetErrorHandling(requestError);
+    } finally {
+      setCompleting(false);
+    }
+  };
+
+  const beginCompleteOrder = (orderId: string) => {
+    if (paymentMethod) void completeOrder(orderId, paymentMethod);
+    else setPaymentOrderId(orderId);
+  };
+
   const tabs = [
     { value: "pending", label: "Pending", count: counts.pending },
     { value: "progress", label: "In progress", count: counts.processing },
@@ -73,7 +102,7 @@ export function OrdersPage({ authMember }: OrdersPageProps) {
         {!loading && authMember && <Box className="coco-orders__layout">
           <Box className="coco-orders__main">
             <Tabs value={value} onChange={handleChange} className="coco-orders__tabs" aria-label="Order status">{tabs.map((tab) => <Tab key={tab.value} value={tab.value} label={<span>{tab.label}<b>{tab.count}</b></span>} />)}</Tabs>
-            <Box className="coco-orders__content">{value === "pending" && <PausedOrders onCancel={cancelOrder} />}{value === "progress" && <ProcessOrders />}{value === "completed" && <FinishedOrders />}</Box>
+            <Box className="coco-orders__content">{value === "pending" && <PausedOrders onCancel={cancelOrder} onComplete={beginCompleteOrder} />}{value === "progress" && <ProcessOrders />}{value === "completed" && <FinishedOrders />}</Box>
           </Box>
           <Box component="aside" className="coco-orders__aside">
             <Box className="coco-orders__member"><Box className="coco-orders__avatar">{initials}</Box><Box><Typography component="h2">{authMember.memberNick}</Typography><Typography>COCO member</Typography></Box></Box>
@@ -81,6 +110,10 @@ export function OrdersPage({ authMember }: OrdersPageProps) {
             <Box className="coco-orders__delivery-note"><LocalShippingOutlinedIcon /><Typography component="h3">Complimentary delivery</Typography><Typography>Free delivery is applied to orders over $150.</Typography></Box>
           </Box>
         </Box>}
+        <Dialog open={Boolean(paymentOrderId)} onClose={() => !completing && setPaymentOrderId(null)} fullWidth maxWidth="sm">
+          <DialogTitle>Complete your order<IconButton aria-label="Close" onClick={() => setPaymentOrderId(null)} disabled={completing} sx={{ position: "absolute", right: 10, top: 10 }}><CloseIcon /></IconButton></DialogTitle>
+          <DialogContent><Typography sx={{ mb: 2, color: "text.secondary" }}>Enter your payment information to confirm this demo order.</Typography><PaymentDetailsForm savedMethod={paymentMethod} submitting={completing} submitLabel="Complete order" onSubmit={(method) => { if (paymentOrderId) return completeOrder(paymentOrderId, method); }} /></DialogContent>
+        </Dialog>
       </Container>
     </Box>
   );

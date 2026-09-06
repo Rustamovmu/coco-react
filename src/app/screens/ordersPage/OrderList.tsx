@@ -17,9 +17,10 @@ interface OrderListProps {
   orders: Order[];
   emptyMessage: string;
   onCancel?: (orderId: string) => void;
+  onComplete?: (orderId: string) => void;
 }
 
-export default function OrderList({ orders, emptyMessage, onCancel }: OrderListProps) {
+export default function OrderList({ orders, emptyMessage, onCancel, onComplete }: OrderListProps) {
   if (!orders.length) return <Box className="coco-orders__empty">{emptyMessage}</Box>;
 
   return <Stack className="coco-order-list">{orders.map((order) => {
@@ -28,7 +29,7 @@ export default function OrderList({ orders, emptyMessage, onCancel }: OrderListP
       <Stack direction="row" justifyContent="space-between" alignItems="center" className="coco-order-card__top"><Box><Typography component="h2">Order #{order._id.slice(-8).toUpperCase()}</Typography><Typography>Placed {new Intl.DateTimeFormat("en-GB", { day: "2-digit", month: "long", year: "numeric" }).format(order.createdAt)}</Typography></Box><Chip label={meta.label} className={`coco-order-card__status coco-order-card__status--${meta.tone}`} /></Stack>
       <Box className="coco-order-card__progress"><span style={{ width: `${meta.progress}%` }} /></Box>
       <Stack className="coco-order-card__items">{order.orderItems.map((item) => <Stack direction="row" alignItems="center" className="coco-order-item" key={item._id}><Box component="img" src={item.productImage} alt={item.productName} /><Box className="coco-order-item__copy"><Typography component="h3">{item.productName}</Typography><Typography>{[item.selectedColor, item.selectedSize, `Qty ${item.quantity}`].filter(Boolean).join(" · ")}</Typography></Box><Typography className="coco-order-item__price">{formatPrice(item.unitPrice * item.quantity)}</Typography></Stack>)}</Stack>
-      <Stack direction="row" justifyContent="space-between" alignItems="center" className="coco-order-card__bottom"><Typography>Total <strong>{formatPrice(order.orderTotal)}</strong>{order.orderShippingFee > 0 && <small> incl. {formatPrice(order.orderShippingFee)} delivery</small>}</Typography>{onCancel && order.orderStatus === OrderStatus.PENDING && <Button className="coco-order-card__secondary" onClick={() => onCancel(order._id)}>Cancel order</Button>}</Stack>
+      <Stack direction="row" justifyContent="space-between" alignItems="center" className="coco-order-card__bottom"><Typography>Total <strong>{formatPrice(order.orderTotal)}</strong>{order.orderShippingFee > 0 && <small> incl. {formatPrice(order.orderShippingFee)} delivery</small>}</Typography>{order.orderStatus === OrderStatus.PENDING && <Stack direction="row" className="coco-order-card__actions">{onCancel && <Button className="coco-order-card__secondary" onClick={() => onCancel(order._id)}>Cancel order</Button>}{onComplete && <Button className="coco-order-card__primary" onClick={() => onComplete(order._id)}>Complete order</Button>}</Stack>}</Stack>
     </Box>;
   })}</Stack>;
 }

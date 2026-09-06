@@ -4,6 +4,8 @@ import PhotoCameraOutlinedIcon from "@mui/icons-material/PhotoCameraOutlined";
 import CheckIcon from "@mui/icons-material/Check";
 import MemberService from "../../services/MemberService";
 import { Member, MemberUpdateInput } from "../../../lib/types/member";
+import PaymentDetailsForm from "../../components/payment/PaymentDetailsForm";
+import { getPaymentMethod, PaymentMethod, savePaymentMethod } from "../../../lib/payment";
 
 interface SettingsProps {
   member: Member;
@@ -25,8 +27,10 @@ export function Settings({ member, memberImageUrl, onMemberUpdated }: SettingsPr
   const [saved, setSaved] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [paymentMethod, setPaymentMethod] = useState(() => getPaymentMethod(member._id));
 
   useEffect(() => setProfile(fieldsFromMember(member)), [member]);
+  useEffect(() => setPaymentMethod(getPaymentMethod(member._id)), [member._id]);
   useEffect(() => () => { if (preview) URL.revokeObjectURL(preview); }, [preview]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -114,6 +118,11 @@ export function Settings({ member, memberImageUrl, onMemberUpdated }: SettingsPr
       <Box className="coco-settings__preferences">
         <Typography component="h3">Communication</Typography>
         <Stack direction="row" justifyContent="space-between" alignItems="center"><Box><Typography>Collection updates</Typography><Typography>Receive occasional notes about new arrivals and private edits.</Typography></Box><label className="coco-settings__switch"><input type="checkbox" defaultChecked aria-label="Receive collection updates" /><span /></label></Stack>
+      </Box>
+      <Box className="coco-settings__payment">
+        <Typography component="h3">Payment details</Typography>
+        <Typography>Enter a card to use when completing pending orders.</Typography>
+        <PaymentDetailsForm savedMethod={paymentMethod} onSubmit={(method: PaymentMethod) => { savePaymentMethod(member._id, method); setPaymentMethod(method); }} />
       </Box>
       <Stack direction="row" justifyContent="flex-end" className="coco-settings__actions"><Button type="button" disabled={submitting} onClick={resetForm}>Cancel</Button><Button type="submit" variant="contained" disabled={submitting}>{submitting ? "Saving…" : "Save changes"}</Button></Stack>
     </Box>
