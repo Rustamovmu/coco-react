@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "../css/app.css";
 import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import HomePage from "./screens/homePage";
@@ -49,6 +49,11 @@ function App() {
   const [authMember, setAuthMember] = useState<Member | null>(readStoredMember);
   const [signupOpen, setSignupOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [location.pathname, location.search]);
+
   const openSignup = useCallback(() => {
     setLoginOpen(false);
     setSignupOpen(true);
