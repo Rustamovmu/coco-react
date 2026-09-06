@@ -8,7 +8,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import TuneIcon from "@mui/icons-material/Tune";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ProductService from "../../services/ProductService";
 import { serverApi } from "../../../lib/config";
 import { ProductCollection } from "../../../lib/enums/product.enum";
@@ -24,10 +24,19 @@ const collections: Array<{ value: ProductCollection | "ALL"; label: string }> = 
   { value: ProductCollection.PANTS, label: "Pants" }, { value: ProductCollection.SHOES, label: "Shoes" },
   { value: ProductCollection.HAT, label: "Hats" }, { value: ProductCollection.OTHERS, label: "Accessories" },
 ];
+
+const getCollectionFromSearch = (search: string): ProductCollection | "ALL" => {
+  const requested = new URLSearchParams(search).get("collection");
+  return collections.some((item) => item.value === requested)
+    ? requested as ProductCollection | "ALL"
+    : "ALL";
+};
+
 export default function Products({ cart }: { cart: CartInterface }) {
+  const location = useLocation();
   const [products, setProducts] = useState<Product[]>(catalogProducts);
   const [search, setSearch] = useState("");
-  const [collection, setCollection] = useState<ProductCollection | "ALL">("ALL");
+  const [collection, setCollection] = useState<ProductCollection | "ALL">(() => getCollectionFromSearch(location.search));
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [sortField, setSortField] = useState<SortField>("productViews");
