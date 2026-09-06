@@ -1,4 +1,4 @@
-import { Member } from "./member";
+import { TopMember } from "./member";
 import { Order } from "./order";
 import { Product } from "./product";
 
@@ -14,7 +14,7 @@ export interface AppRootState {
 export interface HomePageState {
   featuredProducts: Product[];
   newArrivals: Product[];
-  topMembers: Member[];
+  topMembers: TopMember[];
 }
 
 /** PRODUCT PAGE STATE */

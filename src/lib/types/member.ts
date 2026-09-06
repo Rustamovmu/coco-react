@@ -9,9 +9,17 @@ export interface Member {
     memberPassword?: string;
     memberImage?: string;
     memberAddress?: string;
+    memberDesc?: string;
     memberPoints?: number;
     createdAt: Date;
     updatedAt: Date;
+}
+
+export interface TopMember extends Member {
+    rank: number;
+    purchaseCount: number;
+    productsBought: number;
+    totalSpent: number;
 }
 
 export interface MemberInput {

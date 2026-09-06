@@ -971,6 +971,18 @@
   overflow: hidden;
 }
 
+.coco-community__status {
+  align-items: center;
+  background: #252320;
+  color: #c9c1b8;
+  display: flex;
+  font-size: 14px;
+  justify-content: center;
+  min-height: 220px;
+  padding: 32px;
+  text-align: center;
+}
+
 .coco-community__featured {
   background: #c9c0b6;
   overflow: hidden;
@@ -1089,6 +1101,8 @@
 .coco-community__members {
   display: grid;
   gap: 5px;
+  min-height: 0;
+  overflow-y: auto;
   position: relative;
   z-index: 1;
 }

@@ -5,6 +5,7 @@ import {
   Member,
   MemberInput,
   MemberUpdateInput,
+  TopMember,
 } from "../../lib/types/member";
 
 class MemberService {
@@ -42,6 +43,11 @@ class MemberService {
       withCredentials: true,
     });
     this.saveMember(result.data);
+    return result.data;
+  }
+
+  public async getTopUsers(): Promise<TopMember[]> {
+    const result = await axios.get<TopMember[]>(`${this.path}/top-users`);
     return result.data;
   }
 
