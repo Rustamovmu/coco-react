@@ -22,8 +22,15 @@ const homePageSlice = createSlice({
     setTopMembers(state, action: PayloadAction<Member[]>) {
       state.topMembers = action.payload;
     },
+    updateProductLike(state, action: PayloadAction<{ productId: string; productLikes: number; isLiked: boolean }>) {
+      const update = (product: Product) => product._id === action.payload.productId
+        ? { ...product, productLikes: action.payload.productLikes, isLiked: action.payload.isLiked }
+        : product;
+      state.featuredProducts = state.featuredProducts.map(update);
+      state.newArrivals = state.newArrivals.map(update);
+    },
   },
 });
 
-export const { setFeaturedProducts, setNewArrivals, setTopMembers } = homePageSlice.actions;
+export const { setFeaturedProducts, setNewArrivals, setTopMembers, updateProductLike } = homePageSlice.actions;
 export default homePageSlice.reducer;

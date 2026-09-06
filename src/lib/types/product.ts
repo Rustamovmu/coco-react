@@ -20,8 +20,15 @@ export interface Product {
     productDesc?: string;
     productImages: string[];
     productViews: number;
+    productLikes: number;
+    isLiked: boolean;
     createdAt: Date;
     updatedAt: Date;
+}
+
+export interface ProductLikeResult {
+    productLikes: number;
+    isLiked: boolean;
 }
 
 export interface ProductInquiry {

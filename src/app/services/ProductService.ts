@@ -1,6 +1,6 @@
 import axios from "axios";
 import { serverApi } from "../../lib/config";
-import { Product, ProductInquiry } from "../../lib/types/product";
+import { Product, ProductInquiry, ProductLikeResult } from "../../lib/types/product";
 import { ProductCollection, ProductShoeSize, ProductSize, ProductStatus } from "../../lib/enums/product.enum";
 
 interface ApiProduct {
@@ -15,6 +15,8 @@ interface ApiProduct {
   productDesc?: string;
   productImages?: string[];
   productViews?: number;
+  productLikes?: number;
+  isLiked?: boolean;
   createdAt: string;
   updatedAt: string;
 }
@@ -41,10 +43,14 @@ const normalizeProduct = (product: ApiProduct): Product => {
     productDesc: product.productDesc,
     productImages: (product.productImages ?? []).map(imageUrl),
     productViews: product.productViews ?? 0,
+    productLikes: product.productLikes ?? 0,
+    isLiked: product.isLiked ?? false,
     createdAt: new Date(product.createdAt),
     updatedAt: new Date(product.updatedAt),
   };
 };
+
+const productDetailRequests = new Map<string, Promise<Product>>();
 
 class ProductService {
   private readonly path: string;
@@ -69,13 +75,32 @@ class ProductService {
     if (input.color) params.set("color", input.color);
     if (input.search) params.set("search", input.search);
 
-    const result = await axios.get<ApiProduct[]>(`${this.path}/all?${params.toString()}`);
+    const result = await axios.get<ApiProduct[]>(`${this.path}/all?${params.toString()}`, {
+      withCredentials: true,
+    });
     return result.data.map(normalizeProduct);
   }
 
   public async getProduct(productId: string): Promise<Product> {
-    const result = await axios.get<ApiProduct>(`${this.path}/${productId}`);
-    return normalizeProduct(result.data);
+    const pending = productDetailRequests.get(productId);
+    if (pending) return pending;
+    const request = axios.get<ApiProduct>(`${this.path}/${productId}`, { withCredentials: true })
+      .then((result) => normalizeProduct(result.data));
+    productDetailRequests.set(productId, request);
+    request.then(
+      () => productDetailRequests.delete(productId),
+      () => productDetailRequests.delete(productId),
+    );
+    return request;
+  }
+
+  public async toggleLike(productId: string): Promise<ProductLikeResult> {
+    const result = await axios.post<ProductLikeResult>(
+      `${this.path}/${productId}/like`,
+      {},
+      { withCredentials: true },
+    );
+    return result.data;
   }
 }
 

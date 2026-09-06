@@ -1,11 +1,16 @@
 import React from "react";
-import { Box, Button, Container, Skeleton, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, IconButton, Skeleton, Stack, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Link } from "react-router-dom";
-import { useAppSelector } from "../../hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 import { selectNewArrivals } from "./selector";
 import { formatPrice, getProductImage } from "../productsPage/catalog";
+import ProductService from "../../services/ProductService";
+import { updateProductLike } from "./slice";
+import { sweetErrorHandling } from "../../../lib/sweetAlert";
 
 interface NewArrivalsProps {
   loading: boolean;
@@ -14,6 +19,18 @@ interface NewArrivalsProps {
 
 export default function NewArrivals({ loading, error }: NewArrivalsProps) {
   const products = useAppSelector(selectNewArrivals);
+  const dispatch = useAppDispatch();
+
+  const toggleLike = async (event: React.MouseEvent<HTMLButtonElement>, productId: string) => {
+    event.preventDefault();
+    event.stopPropagation();
+    try {
+      const result = await new ProductService().toggleLike(productId);
+      dispatch(updateProductLike({ productId, ...result }));
+    } catch (error) {
+      await sweetErrorHandling(error);
+    }
+  };
 
   return (
     <Box component="section" className="new-arrivals">
@@ -31,6 +48,7 @@ export default function NewArrivals({ loading, error }: NewArrivalsProps) {
             <Link to={`/products/${product._id}`} className={`new-arrival-card new-arrival-card--${index + 1}`} key={product._id}>
               <Box className="new-arrival-card__media">
                 <img src={getProductImage(product)} alt={product.productName} loading="lazy" />
+                <IconButton className={`new-arrival-card__like${product.isLiked ? " is-liked" : ""}`} onClick={(event) => toggleLike(event, product._id)} aria-label={product.isLiked ? `Unlike ${product.productName}` : `Like ${product.productName}`}>{product.isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}</IconButton>
                 <span className="new-arrival-card__badge">New</span><span className="new-arrival-card__category">{product.productCollection}</span><span className="new-arrival-card__number">{String(index + 1).padStart(2, "0")}</span><span className="new-arrival-card__action">View style <ArrowForwardIcon /></span>
               </Box>
               <Stack className="new-arrival-card__body" spacing={1}>

@@ -86,6 +86,10 @@
 .product-detail__name { font-family: Georgia, "Times New Roman", serif !important; font-size: clamp(34px, 4vw, 50px) !important; font-weight: 400 !important; }
 .product-detail__views, .product-detail__stock { color: #8e867e; font-size: 12px; gap: 5px; }
 .product-detail__views svg { font-size: 17px; }
+.product-detail__engagement { color: #8e867e; font-size: 12px; gap: 8px; }
+.product-detail__like.MuiIconButton-root { border: 1px solid #ded7cf; color: #554d45; padding: 6px; }
+.product-detail__like.MuiIconButton-root.is-liked { color: #c33f55; }
+.product-detail__like svg { font-size: 19px; }
 .product-detail__price { font-size: 21px !important; font-weight: 700 !important; }
 .product-detail__old-price { color: #8e867e; text-decoration: line-through; }
 .product-detail__description { border-bottom: 1px solid #e4ded5; border-top: 1px solid #e4ded5; color: #706961; line-height: 1.75; padding: 20px 0; }

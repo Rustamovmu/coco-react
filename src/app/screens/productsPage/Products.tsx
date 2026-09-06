@@ -15,9 +15,9 @@ import { ProductCollection } from "../../../lib/enums/product.enum";
 import { CartInterface } from "../../../lib/types/cart";
 import { Product } from "../../../lib/types/product";
 import { catalogProducts, formatPrice, getProductImage } from "./catalog";
+import { sweetErrorHandling } from "../../../lib/sweetAlert";
 
 const PAGE_SIZE = 9;
-const FAVORITES_KEY = "cocoFavoriteProducts";
 type SortField = "createdAt" | "productPrice" | "productViews";
 const collections: Array<{ value: ProductCollection | "ALL"; label: string }> = [
   { value: "ALL", label: "All products" }, { value: ProductCollection.CLOTHE, label: "Clothing" },
@@ -31,13 +31,6 @@ const colors = [
   { name: "Olive", hex: "#758052" }, { name: "Clay", hex: "#bd7155" },
 ];
 
-const readFavorites = (): string[] => {
-  try {
-    const value = JSON.parse(localStorage.getItem(FAVORITES_KEY) ?? "[]");
-    return Array.isArray(value) ? value : [];
-  } catch { return []; }
-};
-
 export default function Products({ cart }: { cart: CartInterface }) {
   const [products, setProducts] = useState<Product[]>(catalogProducts);
   const [search, setSearch] = useState("");
@@ -47,7 +40,6 @@ export default function Products({ cart }: { cart: CartInterface }) {
   const [selectedColor, setSelectedColor] = useState("");
   const [sortField, setSortField] = useState<SortField>("productViews");
   const [page, setPage] = useState(1);
-  const [favorites, setFavorites] = useState<string[]>(readFavorites);
 
   useEffect(() => {
     if (!serverApi || serverApi === "undefined") return;
@@ -78,11 +70,14 @@ export default function Products({ cart }: { cart: CartInterface }) {
   const pageProducts = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
   const activeLabel = collections.find((item) => item.value === collection)?.label ?? "Products";
   const resetFilters = () => { setSearch(""); setCollection("ALL"); setMaxPrice(200); setSelectedSize(""); setSelectedColor(""); };
-  const toggleFavorite = (id: string) => setFavorites((current) => {
-    const next = current.includes(id) ? current.filter((item) => item !== id) : [...current, id];
-    localStorage.setItem(FAVORITES_KEY, JSON.stringify(next));
-    return next;
-  });
+  const toggleFavorite = async (id: string) => {
+    try {
+      const result = await new ProductService().toggleLike(id);
+      setProducts((current) => current.map((product) => product._id === id ? { ...product, ...result } : product));
+    } catch (error) {
+      await sweetErrorHandling(error);
+    }
+  };
 
   return <Box component="section" className="products-page"><Container maxWidth="lg" className="products-page__container">
     <Stack direction="row" className="products-breadcrumb" alignItems="center"><Link to="/">Home</Link><ChevronRightIcon/><span>{activeLabel}</span></Stack>
@@ -98,7 +93,7 @@ export default function Products({ cart }: { cart: CartInterface }) {
       </Box>
       <Box className="products-results">
         <Stack direction="row" justifyContent="space-between" alignItems="end" className="products-results__header"><Typography component="h1">{activeLabel}</Typography><Stack direction="row" alignItems="center" className="products-results__meta"><span>Showing {filtered.length ? (page - 1) * PAGE_SIZE + 1 : 0}–{Math.min(page * PAGE_SIZE, filtered.length)} of {filtered.length} products</span><label>Sort by: <select value={sortField} onChange={(event) => setSortField(event.target.value as SortField)}><option value="productViews">Most popular</option><option value="createdAt">Newest</option><option value="productPrice">Price: low to high</option></select></label></Stack></Stack>
-        {pageProducts.length ? <Box className="products-page__grid">{pageProducts.map((product) => <ProductCard key={product._id} product={product} cart={cart} liked={favorites.includes(product._id)} onLike={() => toggleFavorite(product._id)}/>)}</Box> : <Box className="products-page__empty"><Typography component="h3">No pieces found.</Typography><Button onClick={resetFilters}>Clear all filters</Button></Box>}
+        {pageProducts.length ? <Box className="products-page__grid">{pageProducts.map((product) => <ProductCard key={product._id} product={product} cart={cart} onLike={() => toggleFavorite(product._id)}/>)}</Box> : <Box className="products-page__empty"><Typography component="h3">No pieces found.</Typography><Button onClick={resetFilters}>Clear all filters</Button></Box>}
         {pageCount > 1 && <Pagination className="products-page__pagination" count={pageCount} page={page} onChange={(_, value) => setPage(value)} shape="rounded" showFirstButton showLastButton/>}
       </Box>
     </Box>
@@ -106,11 +101,11 @@ export default function Products({ cart }: { cart: CartInterface }) {
   </Container></Box>;
 }
 
-function ProductCard({ product, cart, liked, onLike }: { product: Product; cart: CartInterface; liked: boolean; onLike: () => void }) {
+function ProductCard({ product, cart, onLike }: { product: Product; cart: CartInterface; onLike: () => void }) {
   const price = product.productDiscountPrice ?? product.productPrice;
   const hasDiscount = price < product.productPrice;
   const rating = 3.5 + (product.productViews % 4) * 0.5;
   const stop = (event: React.MouseEvent<HTMLButtonElement>, action: () => void) => { event.preventDefault(); event.stopPropagation(); action(); };
   const addToBag = () => cart.onAdd({ productId: product._id, productName: product.productName, unitPrice: price, quantity: 1, imageUrl: getProductImage(product), selectedSize: product.productSizes[0] ?? "ONESIZE" });
-  return <Link className="catalog-product-card" to={`/products/${product._id}`}><Box className="catalog-product-card__media"><img src={getProductImage(product)} alt={product.productName} loading="lazy"/><IconButton className={`catalog-product-card__like${liked ? " is-liked" : ""}`} onClick={(event) => stop(event, onLike)} aria-label={liked ? `Unlike ${product.productName}` : `Like ${product.productName}`}>{liked ? <FavoriteIcon/> : <FavoriteBorderIcon/>}</IconButton><Button className="catalog-product-card__add" onClick={(event) => stop(event, addToBag)}><ShoppingBagOutlinedIcon/> Add to bag</Button></Box><Box className="catalog-product-card__content"><Typography className="catalog-product-card__name">{product.productName}</Typography><Stack direction="row" alignItems="center" className="catalog-product-card__rating"><span>{[1, 2, 3, 4, 5].map((star) => <StarRoundedIcon key={star} className={star > Math.round(rating) ? "is-empty" : ""}/>)}</span><small>{rating.toFixed(1)}/5</small></Stack><Stack direction="row" alignItems="center" className="catalog-product-card__prices"><strong>{formatPrice(price)}</strong>{hasDiscount && <><del>{formatPrice(product.productPrice)}</del><span>-{Math.round((1 - price / product.productPrice) * 100)}%</span></>}</Stack></Box></Link>;
+  return <Link className="catalog-product-card" to={`/products/${product._id}`}><Box className="catalog-product-card__media"><img src={getProductImage(product)} alt={product.productName} loading="lazy"/><IconButton className={`catalog-product-card__like${product.isLiked ? " is-liked" : ""}`} onClick={(event) => stop(event, onLike)} aria-label={product.isLiked ? `Unlike ${product.productName}` : `Like ${product.productName}`}>{product.isLiked ? <FavoriteIcon/> : <FavoriteBorderIcon/>}</IconButton><Button className="catalog-product-card__add" onClick={(event) => stop(event, addToBag)}><ShoppingBagOutlinedIcon/> Add to bag</Button></Box><Box className="catalog-product-card__content"><Typography className="catalog-product-card__name">{product.productName}</Typography><Stack direction="row" alignItems="center" className="catalog-product-card__rating"><span>{[1, 2, 3, 4, 5].map((star) => <StarRoundedIcon key={star} className={star > Math.round(rating) ? "is-empty" : ""}/>)}</span><small>{rating.toFixed(1)}/5</small><small>{product.productLikes} likes</small></Stack><Stack direction="row" alignItems="center" className="catalog-product-card__prices"><strong>{formatPrice(price)}</strong>{hasDiscount && <><del>{formatPrice(product.productPrice)}</del><span>-{Math.round((1 - price / product.productPrice) * 100)}%</span></>}</Stack></Box></Link>;
 }

@@ -3,9 +3,11 @@ import { Product } from "../../../lib/types/product";
 
 const image = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1200&q=85`;
 
-const createProduct = (product: Omit<Product, "productStatus" | "createdAt" | "updatedAt">, date: string): Product => ({
+const createProduct = (product: Omit<Product, "productStatus" | "createdAt" | "updatedAt" | "productLikes" | "isLiked">, date: string): Product => ({
   ...product,
   productStatus: ProductStatus.PROCESS,
+  productLikes: 0,
+  isLiked: false,
   createdAt: new Date(date),
   updatedAt: new Date(date),
 });
