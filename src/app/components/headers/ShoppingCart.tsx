@@ -4,6 +4,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import { CartInterface } from "../../../lib/types/cart";
 import { CartItem } from "../../../lib/types/search";
+import { FREE_DELIVERY_THRESHOLD, getDeliveryFee, getOrderTotal } from "../../../lib/pricing";
 
 interface ShoppingCartProps {
   cart: CartInterface;
@@ -19,6 +20,8 @@ export default function ShoppingCart({ cart, onCheckout }: ShoppingCartProps) {
     (total, item) => total + item.unitPrice * item.quantity,
     0,
   );
+  const deliveryFee = getDeliveryFee(subtotal);
+  const orderTotal = getOrderTotal(subtotal);
 
   const closeCart = () => setAnchorEl(null);
 
@@ -62,9 +65,19 @@ export default function ShoppingCart({ cart, onCheckout }: ShoppingCartProps) {
                   <CartRow key={`${item.productId}-${item.selectedSize}-${item.selectedColor ?? ""}`} item={item} cart={cart} />
                 ))}
               </Stack>
-              <Stack direction="row" justifyContent="space-between" className="coco-cart-menu__subtotal">
-                <span>Subtotal</span>
-                <strong>{formatPrice(subtotal)}</strong>
+              <Stack className="coco-cart-menu__summary">
+                <Stack direction="row" justifyContent="space-between">
+                  <span>Subtotal</span>
+                  <strong>{formatPrice(subtotal)}</strong>
+                </Stack>
+                <Stack direction="row" justifyContent="space-between">
+                  <span>Delivery <small>Free from {formatPrice(FREE_DELIVERY_THRESHOLD)}</small></span>
+                  <strong>{deliveryFee ? formatPrice(deliveryFee) : "Free"}</strong>
+                </Stack>
+                <Stack direction="row" justifyContent="space-between" className="coco-cart-menu__total">
+                  <span>Total</span>
+                  <strong>{formatPrice(orderTotal)}</strong>
+                </Stack>
               </Stack>
               <Button
                 variant="contained"

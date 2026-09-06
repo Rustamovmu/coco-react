@@ -323,9 +323,36 @@
   padding: 2px;
 }
 
-.coco-cart-menu__subtotal {
+.coco-cart-menu__summary {
   border-top: 1px solid #ece8e2;
+  color: #706a63;
+  font-size: 12px;
+  gap: 9px;
   padding-top: 14px;
+}
+
+.coco-cart-menu__summary small {
+  color: #a09991;
+  font-size: 9px;
+  margin-left: 5px;
+}
+
+.coco-cart-menu__summary strong {
+  color: #28241f;
+  font-weight: 600;
+}
+
+.coco-cart-menu__total {
+  border-top: 1px solid #ece8e2;
+  color: #28241f;
+  font-size: 14px;
+  margin-top: 3px;
+  padding-top: 11px;
+}
+
+.coco-cart-menu__total strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
 }
 
 .coco-inner-header__banner {

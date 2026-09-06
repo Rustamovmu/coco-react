@@ -13,6 +13,7 @@ import { resetOrders, setCompletedOrders, setPendingOrders, setProcessingOrders 
 import { selectOrderCounts } from "./selector";
 import { Member } from "../../../lib/types/member";
 import { sweetErrorHandling, sweetTopSmallSuccessAlert } from "../../../lib/sweetAlert";
+import { FREE_DELIVERY_THRESHOLD } from "../../../lib/pricing";
 import PaymentDetailsForm from "../../components/payment/PaymentDetailsForm";
 import { getPaymentMethod, PaymentMethod, savePaymentMethod } from "../../../lib/payment";
 import "../../../css/order.css";
@@ -107,7 +108,7 @@ export function OrdersPage({ authMember }: OrdersPageProps) {
           <Box component="aside" className="coco-orders__aside">
             <Box className="coco-orders__member"><Box className="coco-orders__avatar">{initials}</Box><Box><Typography component="h2">{authMember.memberNick}</Typography><Typography>COCO member</Typography></Box></Box>
             <Box className="coco-orders__address"><PlaceOutlinedIcon /><Box><Typography component="h3">Delivery address</Typography><Typography>{authMember.memberAddress || "Add an address in your profile"}</Typography></Box></Box>
-            <Box className="coco-orders__delivery-note"><LocalShippingOutlinedIcon /><Typography component="h3">Complimentary delivery</Typography><Typography>Free delivery is applied to orders over $150.</Typography></Box>
+            <Box className="coco-orders__delivery-note"><LocalShippingOutlinedIcon /><Typography component="h3">Complimentary delivery</Typography><Typography>Free delivery is applied to orders of ${FREE_DELIVERY_THRESHOLD} or more.</Typography></Box>
           </Box>
         </Box>}
         <Dialog open={Boolean(paymentOrderId)} onClose={() => !completing && setPaymentOrderId(null)} fullWidth maxWidth="sm">

@@ -16,6 +16,7 @@ import { Product } from "../../../lib/types/product";
 import { ProductCollection } from "../../../lib/enums/product.enum";
 import { formatPrice, getProductImage } from "./catalog";
 import { sweetErrorHandling } from "../../../lib/sweetAlert";
+import { FREE_DELIVERY_THRESHOLD } from "../../../lib/pricing";
 
 export default function ChosenProduct({ cart }: { cart: CartInterface }) {
   const { productId } = useParams<{ productId: string }>();
@@ -107,7 +108,7 @@ export default function ChosenProduct({ cart }: { cart: CartInterface }) {
           {product.productSizes.length > 0 && <Box><Typography className="product-detail__label">Select size</Typography><Stack className="product-detail__options" direction="row">{product.productSizes.map((size) => <Button className={selectedSize === size ? "is-active" : ""} onClick={() => setSelectedSize(size)} key={size}>{size}</Button>)}</Stack></Box>}
           {product.productColors.length > 0 && <Box><Typography className="product-detail__label">Select colour</Typography><Stack className="product-detail__options" direction="row">{product.productColors.map((color) => <Button className={selectedColor === color ? "is-active" : ""} onClick={() => setSelectedColor(color)} key={color}>{color}</Button>)}</Stack></Box>}
           <Stack direction="row" className="product-detail__actions"><Button className="product-detail__add" variant="contained" onClick={addToBag} disabled={product.productStock < 1} startIcon={<ShoppingBagOutlinedIcon />}>Add to bag</Button><IconButton className={`product-detail__favorite${product.isLiked ? " is-liked" : ""}`} onClick={toggleLike} aria-label={product.isLiked ? `Unlike ${product.productName}` : `Like ${product.productName}`}>{product.isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}</IconButton></Stack>
-          <Box className="product-detail__benefits"><Box><LocalShippingOutlinedIcon/><span><strong>Free delivery</strong>Orders over $150</span></Box><Box><Inventory2OutlinedIcon/><span><strong>Live stock</strong>{product.productStock} pieces available</span></Box><Box><PersonOutlineIcon/><span><strong>Your account</strong>Track every order</span></Box></Box>
+          <Box className="product-detail__benefits"><Box><LocalShippingOutlinedIcon/><span><strong>Free delivery</strong>Orders from ${FREE_DELIVERY_THRESHOLD}</span></Box><Box><Inventory2OutlinedIcon/><span><strong>Live stock</strong>{product.productStock} pieces available</span></Box><Box><PersonOutlineIcon/><span><strong>Your account</strong>Track every order</span></Box></Box>
         </Stack>
       </Box>
       <Box className={`product-detail__story${images[1] ? " product-detail__story--with-image" : ""}`}>
