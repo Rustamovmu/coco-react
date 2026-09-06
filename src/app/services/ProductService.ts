@@ -10,6 +10,7 @@ interface ApiProduct {
   productName: string;
   productPrice: number;
   productLeftCount: number;
+  productSizes?: Array<ProductSize | ProductShoeSize>;
   productSize?: ProductSize;
   productShoeSize?: ProductShoeSize;
   productDesc?: string;
@@ -27,9 +28,12 @@ const imageUrl = (image: string): string => {
 };
 
 const normalizeProduct = (product: ApiProduct): Product => {
-  const size = product.productCollection === ProductCollection.SHOES
+  const legacySize = product.productCollection === ProductCollection.SHOES
     ? product.productShoeSize
     : product.productSize;
+  const sizes = product.productSizes?.length
+    ? product.productSizes
+    : legacySize ? [legacySize] : [];
 
   return {
     _id: product._id,
@@ -38,7 +42,7 @@ const normalizeProduct = (product: ApiProduct): Product => {
     productName: product.productName,
     productPrice: product.productPrice,
     productStock: product.productLeftCount,
-    productSizes: size ? [size] : [],
+    productSizes: sizes,
     productColors: [],
     productDesc: product.productDesc,
     productImages: (product.productImages ?? []).map(imageUrl),
