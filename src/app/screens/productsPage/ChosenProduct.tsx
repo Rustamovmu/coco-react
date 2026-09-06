@@ -6,6 +6,9 @@ import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
+import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import { Link, useParams } from "react-router-dom";
 import ProductService from "../../services/ProductService";
 import { CartInterface } from "../../../lib/types/cart";
@@ -86,7 +89,34 @@ export default function ChosenProduct({ cart }: { cart: CartInterface }) {
     }
   };
 
-  return <Box component="section" className="product-detail"><Container maxWidth="lg"><Button component={Link} to="/products" className="product-detail__back" startIcon={<ArrowBackIcon />}>All pieces</Button><Box className="product-detail__layout"><Stack className="product-detail__gallery" direction="row"><Stack className="product-detail__thumbnails">{images.map((image, index) => <button type="button" className={selectedImage === index ? "is-active" : ""} onClick={() => setSelectedImage(index)} key={image}><img src={image} alt={`${product.productName} view ${index + 1}`}/></button>)}</Stack><Box className="product-detail__image"><img src={images[selectedImage]} alt={product.productName}/></Box></Stack><Stack className="product-detail__info" spacing={2.5}><Typography className="product-detail__collection">{product.productCollection.toLowerCase()}</Typography><Typography component="h2" className="product-detail__name">{product.productName}</Typography><Stack direction="row" className="product-detail__engagement" alignItems="center"><Stack direction="row" className="product-detail__views" alignItems="center"><VisibilityOutlinedIcon /> {product.productViews} views</Stack><IconButton className={`product-detail__like${product.isLiked ? " is-liked" : ""}`} onClick={toggleLike} aria-label={product.isLiked ? `Unlike ${product.productName}` : `Like ${product.productName}`}>{product.isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}</IconButton><Typography>{product.productLikes} likes</Typography></Stack><Stack direction="row" alignItems="baseline" spacing={1.25}><Typography className="product-detail__price">{formatPrice(price)}</Typography>{price !== product.productPrice && <Typography className="product-detail__old-price">{formatPrice(product.productPrice)}</Typography>}</Stack><Typography className="product-detail__description">{product.productDesc || "A versatile Coco essential, thoughtfully designed for repeat wear."}</Typography>{product.productSizes.length > 0 && <Box><Typography className="product-detail__label">Size</Typography><Stack className="product-detail__options" direction="row">{product.productSizes.map((size) => <Button className={selectedSize === size ? "is-active" : ""} onClick={() => setSelectedSize(size)} key={size}>{size}</Button>)}</Stack></Box>}{product.productColors.length > 0 && <Box><Typography className="product-detail__label">Colour</Typography><Stack className="product-detail__options" direction="row">{product.productColors.map((color) => <Button className={selectedColor === color ? "is-active" : ""} onClick={() => setSelectedColor(color)} key={color}>{color}</Button>)}</Stack></Box>}<Button className="product-detail__add" variant="contained" onClick={addToBag} startIcon={<ShoppingBagOutlinedIcon />}>Add to bag</Button><Typography className="product-detail__stock">{product.productStock > 0 ? `${product.productStock} in stock` : "Currently unavailable"}</Typography></Stack></Box>{loadingRelated ? <Box className="related-products__empty">Loading related products…</Box> : relatedProducts.length > 0 ? <RelatedProducts products={relatedProducts} collection={product.productCollection} /> : <Box className="related-products__empty">No other products are available in this collection.</Box>}</Container></Box>;
+  return <Box component="section" className="product-detail">
+    <Container maxWidth="lg">
+      <Button component={Link} to="/products" className="product-detail__back" startIcon={<ArrowBackIcon />}>Back to collection</Button>
+      <Box className="product-detail__layout">
+        <Stack className="product-detail__gallery" direction="row">
+          <Stack className="product-detail__thumbnails">{images.map((image, index) => <button type="button" className={selectedImage === index ? "is-active" : ""} onClick={() => setSelectedImage(index)} key={image}><img src={image} alt={`${product.productName} view ${index + 1}`}/></button>)}</Stack>
+          <Box className="product-detail__image"><img src={images[selectedImage]} alt={product.productName}/></Box>
+        </Stack>
+        <Stack className="product-detail__info">
+          <Typography className="product-detail__badge">{product.productStock > 0 ? "Available now" : "Currently unavailable"}</Typography>
+          <Typography className="product-detail__collection">{collectionLabels[product.productCollection]}</Typography>
+          <Typography component="h1" className="product-detail__name">{product.productName}</Typography>
+          <Stack direction="row" className="product-detail__engagement" alignItems="center"><Stack direction="row" className="product-detail__views" alignItems="center"><VisibilityOutlinedIcon /> {product.productViews} views</Stack><span className="product-detail__dot"/><Typography>{product.productLikes} likes</Typography></Stack>
+          <Stack direction="row" alignItems="baseline" spacing={1.25}><Typography className="product-detail__price">{formatPrice(price)}</Typography>{price !== product.productPrice && <Typography className="product-detail__old-price">{formatPrice(product.productPrice)}</Typography>}</Stack>
+          <Typography className="product-detail__description">{product.productDesc || "A versatile Coco essential, thoughtfully designed for repeat wear."}</Typography>
+          {product.productSizes.length > 0 && <Box><Typography className="product-detail__label">Select size</Typography><Stack className="product-detail__options" direction="row">{product.productSizes.map((size) => <Button className={selectedSize === size ? "is-active" : ""} onClick={() => setSelectedSize(size)} key={size}>{size}</Button>)}</Stack></Box>}
+          {product.productColors.length > 0 && <Box><Typography className="product-detail__label">Select colour</Typography><Stack className="product-detail__options" direction="row">{product.productColors.map((color) => <Button className={selectedColor === color ? "is-active" : ""} onClick={() => setSelectedColor(color)} key={color}>{color}</Button>)}</Stack></Box>}
+          <Stack direction="row" className="product-detail__actions"><Button className="product-detail__add" variant="contained" onClick={addToBag} disabled={product.productStock < 1} startIcon={<ShoppingBagOutlinedIcon />}>Add to bag</Button><IconButton className={`product-detail__favorite${product.isLiked ? " is-liked" : ""}`} onClick={toggleLike} aria-label={product.isLiked ? `Unlike ${product.productName}` : `Like ${product.productName}`}>{product.isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}</IconButton></Stack>
+          <Box className="product-detail__benefits"><Box><LocalShippingOutlinedIcon/><span><strong>Free delivery</strong>Orders over $150</span></Box><Box><Inventory2OutlinedIcon/><span><strong>Live stock</strong>{product.productStock} pieces available</span></Box><Box><PersonOutlineIcon/><span><strong>Your account</strong>Track every order</span></Box></Box>
+        </Stack>
+      </Box>
+      <Box className={`product-detail__story${images[1] ? " product-detail__story--with-image" : ""}`}>
+        <Box><Typography className="product-detail__story-label">Product details</Typography><Typography component="h2">Designed for everyday wear.</Typography><Typography>{product.productDesc || `${product.productName} is part of Coco's ${collectionLabels[product.productCollection]} collection, selected for an easy and lasting wardrobe.`}</Typography><ul><li>Collection: {collectionLabels[product.productCollection]}</li><li>{product.productStock} pieces currently available</li>{product.productSizes.length > 0 && <li>Available size: {product.productSizes.join(", ")}</li>}</ul></Box>
+        {images[1] && <Box component="img" src={images[1]} alt={`${product.productName} detail`} />}
+      </Box>
+      {loadingRelated ? <Box className="related-products__empty">Loading related products…</Box> : relatedProducts.length > 0 ? <RelatedProducts products={relatedProducts} collection={product.productCollection} /> : <Box className="related-products__empty">No other products are available in this collection.</Box>}
+    </Container>
+  </Box>;
 }
 
 const collectionLabels: Record<ProductCollection, string> = {
