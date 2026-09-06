@@ -7,6 +7,8 @@
 .coco-account__sidebar { background: #252320; color: #fff; overflow: hidden; }
 .coco-account__profile { align-items: center; display: flex; gap: 13px; padding: 24px 22px; }
 .coco-account__avatar { align-items: center; background: #d2af7e; border-radius: 50%; color: #28241f; display: flex; font-family: Georgia, "Times New Roman", serif; font-size: 25px; height: 52px; justify-content: center; width: 52px; }
+.coco-account__avatar { overflow: hidden; flex: 0 0 52px; }
+.coco-account__avatar img { height: 100%; object-fit: cover; width: 100%; }
 .coco-account__profile h2.MuiTypography-root { color: #fff; font-family: Georgia, "Times New Roman", serif; font-size: 19px; }
 .coco-account__profile div > .MuiTypography-root { color: #a39d95; font-size: 10px; margin-top: 4px; }
 .coco-account__nav { border-bottom: 1px solid rgba(255,255,255,.1); border-top: 1px solid rgba(255,255,255,.1); padding: 10px 0; }

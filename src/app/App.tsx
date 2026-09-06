@@ -27,8 +27,8 @@ const readStoredMember = (): Member | null => {
       return null;
     }
 
-    const candidate = parsedMember as { _id?: unknown; memberName?: unknown };
-    if (typeof candidate._id !== "string" || typeof candidate.memberName !== "string") {
+    const candidate = parsedMember as { _id?: unknown; memberNick?: unknown };
+    if (typeof candidate._id !== "string" || typeof candidate.memberNick !== "string") {
       localStorage.removeItem(MEMBER_STORAGE_KEY);
       return null;
     }
@@ -89,7 +89,7 @@ function App() {
         <Switch>
           <Route path="/products"><ProductsPage cart={cart} /></Route>
           <Route path="/orders"><OrdersPage /></Route>
-          <Route path="/member-page"><UserPage /></Route>
+          <Route path="/member-page"><UserPage authMemberId={authMember?._id ?? null} onMemberUpdated={handleAuthenticated} /></Route>
           <Route path="/help"><HelpPage /></Route>
           <Route exact path="/"><HomePage /></Route>
         </Switch>

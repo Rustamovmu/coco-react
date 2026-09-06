@@ -49,7 +49,7 @@ export default function AuthenticationModal({ open, mode, onClose, onRequestSign
 
       if (isSignup) {
         const signupInput: MemberInput = {
-          memberName: form.name.trim(),
+          memberNick: form.name.trim(),
           memberEmail: form.email.trim() || undefined,
           memberPhone: form.phone.trim(),
           memberPassword: form.password,

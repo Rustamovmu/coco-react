@@ -20,7 +20,7 @@ export interface StoreNavigationProps {
 
 export default function StoreNavigation({ authMember, cart, onLogin, onSignup, onLogout, onCheckout, transparent = false }: StoreNavigationProps) {
   const [accountAnchor, setAccountAnchor] = useState<HTMLElement | null>(null);
-  const memberName = authMember?.memberName || "Member";
+  const memberName = authMember?.memberNick || "Member";
   const memberImage = authMember?.memberImage
     ? (authMember.memberImage.startsWith("http") ? authMember.memberImage : `${serverApi}/${authMember.memberImage}`)
     : "/icons/default-user.svg";

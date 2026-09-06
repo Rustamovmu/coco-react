@@ -37,11 +37,18 @@ class MemberService {
     localStorage.removeItem("memberData");
   }
 
+  public async getMemberDetail(): Promise<Member> {
+    const result = await axios.get<Member>(`${this.path}/detail`, {
+      withCredentials: true,
+    });
+    this.saveMember(result.data);
+    return result.data;
+  }
+
   public async updateMember(input: MemberUpdateInput): Promise<Member> {
     const formData = new FormData();
 
-    this.appendOptionalField(formData, "memberName", input.memberName);
-    this.appendOptionalField(formData, "memberEmail", input.memberEmail);
+    this.appendOptionalField(formData, "memberNick", input.memberNick);
     this.appendOptionalField(formData, "memberPhone", input.memberPhone);
     this.appendOptionalField(formData, "memberPassword", input.memberPassword);
     this.appendOptionalField(formData, "memberAddress", input.memberAddress);
@@ -60,8 +67,8 @@ class MemberService {
     return member;
   }
 
-  private appendOptionalField(formData: FormData, key: string, value?: string): void {
-    if (value) formData.append(key, value);
+  private appendOptionalField(formData: FormData, key: string, value?: string | File): void {
+    if (value !== undefined) formData.append(key, value);
   }
 
   private saveMember(member: Member): void {
