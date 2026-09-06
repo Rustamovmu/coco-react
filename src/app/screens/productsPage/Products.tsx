@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Box, Button, Container, IconButton, Pagination, Slider, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, IconButton, Pagination, Stack, Typography } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -35,7 +35,8 @@ export default function Products({ cart }: { cart: CartInterface }) {
   const [products, setProducts] = useState<Product[]>(catalogProducts);
   const [search, setSearch] = useState("");
   const [collection, setCollection] = useState<ProductCollection | "ALL">("ALL");
-  const [maxPrice, setMaxPrice] = useState(200);
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
   const [sortField, setSortField] = useState<SortField>("productViews");
@@ -52,10 +53,15 @@ export default function Products({ cart }: { cart: CartInterface }) {
 
   const filtered = useMemo(() => {
     const query = search.trim().toLowerCase();
+    const minimum = minPrice === "" ? Number.NEGATIVE_INFINITY : Number(minPrice);
+    const maximum = maxPrice === "" ? Number.POSITIVE_INFINITY : Number(maxPrice);
     return products
       .filter((product) => collection === "ALL" || product.productCollection === collection)
       .filter((product) => !query || product.productName.toLowerCase().includes(query))
-      .filter((product) => (product.productDiscountPrice ?? product.productPrice) <= maxPrice)
+      .filter((product) => {
+        const price = product.productDiscountPrice ?? product.productPrice;
+        return price >= minimum && price <= maximum;
+      })
       .filter((product) => !selectedSize || product.productSizes.some((size) => size === selectedSize))
       .filter((product) => !selectedColor || product.productColors.includes(selectedColor))
       .sort((a, b) => {
@@ -63,13 +69,13 @@ export default function Products({ cart }: { cart: CartInterface }) {
         const second = sortField === "createdAt" ? new Date(b.createdAt).getTime() : b[sortField];
         return sortField === "productPrice" ? first - second : second - first;
       });
-  }, [collection, maxPrice, products, search, selectedColor, selectedSize, sortField]);
+  }, [collection, maxPrice, minPrice, products, search, selectedColor, selectedSize, sortField]);
 
-  useEffect(() => { setPage(1); }, [collection, maxPrice, search, selectedColor, selectedSize, sortField]);
+  useEffect(() => { setPage(1); }, [collection, maxPrice, minPrice, search, selectedColor, selectedSize, sortField]);
   const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const pageProducts = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
   const activeLabel = collections.find((item) => item.value === collection)?.label ?? "Products";
-  const resetFilters = () => { setSearch(""); setCollection("ALL"); setMaxPrice(200); setSelectedSize(""); setSelectedColor(""); };
+  const resetFilters = () => { setSearch(""); setCollection("ALL"); setMinPrice(""); setMaxPrice(""); setSelectedSize(""); setSelectedColor(""); };
   const toggleFavorite = async (id: string) => {
     try {
       const result = await new ProductService().toggleLike(id);
@@ -86,7 +92,7 @@ export default function Products({ cart }: { cart: CartInterface }) {
         <Stack direction="row" justifyContent="space-between" alignItems="center" className="products-sidebar__title"><Typography component="h2">Filters</Typography><TuneIcon/></Stack>
         <Box className="products-sidebar__search"><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search products" aria-label="Search products"/><SearchIcon/></Box>
         <Box className="filter-section filter-section--categories">{collections.map((item) => <Button key={item.value} className={collection === item.value ? "is-active" : ""} onClick={() => setCollection(item.value)}>{item.label}<ChevronRightIcon/></Button>)}</Box>
-        <Box className="filter-section"><Typography className="filter-section__label">Price</Typography><Slider value={maxPrice} onChange={(_, value) => setMaxPrice(value as number)} min={40} max={200} aria-label="Maximum price"/><Stack direction="row" justifyContent="space-between" className="filter-section__range"><span>$40</span><strong>Up to ${maxPrice}</strong><span>$200</span></Stack></Box>
+        <Box className="filter-section"><Typography className="filter-section__label">Price</Typography><Box className="filter-price-inputs"><label><span>Minimum</span><Box><b>$</b><input type="number" min="0" step="1" inputMode="decimal" value={minPrice} onChange={(event) => setMinPrice(event.target.value)} placeholder="No minimum" aria-label="Minimum price" /></Box></label><label><span>Maximum</span><Box><b>$</b><input type="number" min="0" step="1" inputMode="decimal" value={maxPrice} onChange={(event) => setMaxPrice(event.target.value)} placeholder="No maximum" aria-label="Maximum price" /></Box></label></Box></Box>
         <Box className="filter-section"><Typography className="filter-section__label">Colors</Typography><Box className="filter-colors">{colors.map((color) => <button key={color.name} type="button" title={color.name} aria-label={`Filter by ${color.name}`} className={selectedColor === color.name ? "is-active" : ""} style={{ backgroundColor: color.hex }} onClick={() => setSelectedColor(selectedColor === color.name ? "" : color.name)}/>)}</Box></Box>
         <Box className="filter-section"><Typography className="filter-section__label">Size</Typography><Box className="filter-sizes">{sizes.map((size) => <Button key={size} className={selectedSize === size ? "is-active" : ""} onClick={() => setSelectedSize(selectedSize === size ? "" : size)}>{size}</Button>)}</Box></Box>
         <Button className="products-sidebar__apply" onClick={resetFilters}>Reset filters</Button>

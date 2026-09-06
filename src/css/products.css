@@ -18,10 +18,12 @@
 .filter-section--categories .MuiButton-root.is-active { color: #000; font-weight: 700; }
 .filter-section--categories svg { font-size: 16px; }
 .filter-section__label { font-size: 14px !important; font-weight: 700 !important; margin-bottom: 13px !important; }
-.filter-section .MuiSlider-root { color: #000; height: 3px; padding: 8px 0; }
-.filter-section .MuiSlider-thumb { height: 14px; width: 14px; }
-.filter-section__range { color: #777; font-size: 10px; margin-top: 5px; }
-.filter-section__range strong { color: #111; }
+.filter-price-inputs { display: grid; gap: 9px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.filter-price-inputs label > span { color: #777; display: block; font-size: 9px; margin-bottom: 5px; }
+.filter-price-inputs label > div { align-items: center; border: 1px solid #d9d9d9; border-radius: 8px; display: flex; padding: 0 8px; }
+.filter-price-inputs b { color: #777; font-size: 11px; font-weight: 500; }
+.filter-price-inputs input { border: 0; font-size: 11px; min-width: 0; outline: 0; padding: 9px 3px; width: 100%; }
+.filter-price-inputs input::-webkit-inner-spin-button { margin: 0; }
 .filter-colors { display: flex; flex-wrap: wrap; gap: 10px; }
 .filter-colors button { border: 1px solid #ccc; border-radius: 50%; cursor: pointer; height: 25px; outline: 2px solid transparent; outline-offset: 2px; width: 25px; }
 .filter-colors button.is-active { outline-color: #111; }
