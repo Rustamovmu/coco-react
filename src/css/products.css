@@ -29,7 +29,10 @@
 .products-results__header h1 { font-size: 30px; font-weight: 700; line-height: 1; }
 .products-results__meta { color: #777; font-size: 11px; gap: 12px; }
 .products-results__meta label { white-space: nowrap; }
-.products-results__meta select { background: transparent; border: 0; color: #111; font: inherit; font-weight: 600; outline: 0; }
+.products-sort { align-items: center; background: #f7f6f4; border: 1px solid #e3e0dc; border-radius: 9px; display: flex; gap: 7px; min-height: 36px; padding: 0 10px 0 12px; transition: border-color .2s ease, background-color .2s ease; }
+.products-sort:hover, .products-sort:focus-within { background: #fff; border-color: #b9b3ad; }
+.products-sort > span { color: #87817b; font-size: 10px; letter-spacing: .03em; }
+.products-sort select { background: transparent; border: 0; color: #26221f; cursor: pointer; font: inherit; font-size: 11px; font-weight: 700; outline: 0; padding: 8px 2px; }
 .products-page__grid { display: grid; gap: 28px 13px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .catalog-product-card { color: inherit; min-width: 0; text-decoration: none; }
 .catalog-product-card:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
