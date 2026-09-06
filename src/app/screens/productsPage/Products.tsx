@@ -24,21 +24,12 @@ const collections: Array<{ value: ProductCollection | "ALL"; label: string }> = 
   { value: ProductCollection.PANTS, label: "Pants" }, { value: ProductCollection.SHOES, label: "Shoes" },
   { value: ProductCollection.HAT, label: "Hats" }, { value: ProductCollection.OTHERS, label: "Accessories" },
 ];
-const sizes = ["S", "M", "L", "XXL", "ONESIZE", "38", "39", "40", "41", "42"];
-const colors = [
-  { name: "Ivory", hex: "#fffff0" }, { name: "Stone", hex: "#a49d91" },
-  { name: "Black", hex: "#111111" }, { name: "Sand", hex: "#d7bd94" },
-  { name: "Olive", hex: "#758052" }, { name: "Clay", hex: "#bd7155" },
-];
-
 export default function Products({ cart }: { cart: CartInterface }) {
   const [products, setProducts] = useState<Product[]>(catalogProducts);
   const [search, setSearch] = useState("");
   const [collection, setCollection] = useState<ProductCollection | "ALL">("ALL");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
-  const [selectedSize, setSelectedSize] = useState("");
-  const [selectedColor, setSelectedColor] = useState("");
   const [sortField, setSortField] = useState<SortField>("productViews");
   const [page, setPage] = useState(1);
 
@@ -62,20 +53,18 @@ export default function Products({ cart }: { cart: CartInterface }) {
         const price = product.productDiscountPrice ?? product.productPrice;
         return price >= minimum && price <= maximum;
       })
-      .filter((product) => !selectedSize || product.productSizes.some((size) => size === selectedSize))
-      .filter((product) => !selectedColor || product.productColors.includes(selectedColor))
       .sort((a, b) => {
         const first = sortField === "createdAt" ? new Date(a.createdAt).getTime() : a[sortField];
         const second = sortField === "createdAt" ? new Date(b.createdAt).getTime() : b[sortField];
         return sortField === "productPrice" ? first - second : second - first;
       });
-  }, [collection, maxPrice, minPrice, products, search, selectedColor, selectedSize, sortField]);
+  }, [collection, maxPrice, minPrice, products, search, sortField]);
 
-  useEffect(() => { setPage(1); }, [collection, maxPrice, minPrice, search, selectedColor, selectedSize, sortField]);
+  useEffect(() => { setPage(1); }, [collection, maxPrice, minPrice, search, sortField]);
   const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const pageProducts = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
   const activeLabel = collections.find((item) => item.value === collection)?.label ?? "Products";
-  const resetFilters = () => { setSearch(""); setCollection("ALL"); setMinPrice(""); setMaxPrice(""); setSelectedSize(""); setSelectedColor(""); };
+  const resetFilters = () => { setSearch(""); setCollection("ALL"); setMinPrice(""); setMaxPrice(""); };
   const toggleFavorite = async (id: string) => {
     try {
       const result = await new ProductService().toggleLike(id);
@@ -93,8 +82,6 @@ export default function Products({ cart }: { cart: CartInterface }) {
         <Box className="products-sidebar__search"><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search products" aria-label="Search products"/><SearchIcon/></Box>
         <Box className="filter-section filter-section--categories">{collections.map((item) => <Button key={item.value} className={collection === item.value ? "is-active" : ""} onClick={() => setCollection(item.value)}>{item.label}<ChevronRightIcon/></Button>)}</Box>
         <Box className="filter-section"><Typography className="filter-section__label">Price</Typography><Box className="filter-price-inputs"><label><span>Minimum</span><Box><b>$</b><input type="number" min="0" step="1" inputMode="decimal" value={minPrice} onChange={(event) => setMinPrice(event.target.value)} placeholder="No minimum" aria-label="Minimum price" /></Box></label><label><span>Maximum</span><Box><b>$</b><input type="number" min="0" step="1" inputMode="decimal" value={maxPrice} onChange={(event) => setMaxPrice(event.target.value)} placeholder="No maximum" aria-label="Maximum price" /></Box></label></Box></Box>
-        <Box className="filter-section"><Typography className="filter-section__label">Colors</Typography><Box className="filter-colors">{colors.map((color) => <button key={color.name} type="button" title={color.name} aria-label={`Filter by ${color.name}`} className={selectedColor === color.name ? "is-active" : ""} style={{ backgroundColor: color.hex }} onClick={() => setSelectedColor(selectedColor === color.name ? "" : color.name)}/>)}</Box></Box>
-        <Box className="filter-section"><Typography className="filter-section__label">Size</Typography><Box className="filter-sizes">{sizes.map((size) => <Button key={size} className={selectedSize === size ? "is-active" : ""} onClick={() => setSelectedSize(selectedSize === size ? "" : size)}>{size}</Button>)}</Box></Box>
         <Button className="products-sidebar__apply" onClick={resetFilters}>Reset filters</Button>
       </Box>
       <Box className="products-results">

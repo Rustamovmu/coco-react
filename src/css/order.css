@@ -53,6 +53,7 @@
 .coco-process-orders__truck svg { font-size: 20px; }
 .coco-process-orders__tracker-head h2.MuiTypography-root { color: #fff; font-family: Georgia, "Times New Roman", serif; font-size: 18px; }
 .coco-process-orders__tracker-head .MuiStack-root .MuiTypography-root:last-child { color: #928c85; font-size: 9px; letter-spacing: .06em; margin-top: 3px; }
+.coco-process-orders__active-count.MuiTypography-root { color: #c8a578; font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .coco-process-orders__eta { border-left: 1px solid rgba(255,255,255,.16); padding-left: 18px; text-align: right; }
 .coco-process-orders__eta .MuiTypography-root:first-child { color: #928c85; font-size: 9px; text-transform: uppercase; }
 .coco-process-orders__eta strong.MuiTypography-root { color: #d8b07a; display: block; font-family: Georgia, "Times New Roman", serif; font-size: 16px; font-weight: 400; margin-top: 3px; }
@@ -60,7 +61,7 @@
 .coco-process-orders__step { border-top: 1px solid rgba(255,255,255,.18); padding-top: 11px; position: relative; }
 .coco-process-orders__step span { background: #5d5954; border: 3px solid #252320; border-radius: 50%; height: 10px; left: 0; position: absolute; top: -5px; width: 10px; }
 .coco-process-orders__step .MuiTypography-root { color: #78736d; font-size: 9px; letter-spacing: .05em; text-transform: uppercase; }
-.coco-process-orders__step--complete { border-color: #c8a578; }
+.coco-process-orders__step--complete, .coco-process-orders__step--current { border-color: #c8a578; }
 .coco-process-orders__step--complete span, .coco-process-orders__step--current span { background: #c8a578; box-shadow: 0 0 0 3px rgba(200,165,120,.14); }
 .coco-process-orders__step--complete .MuiTypography-root, .coco-process-orders__step--current .MuiTypography-root { color: #e2ddd6; }
 .coco-orders__aside { background: #252320; color: #fff; position: sticky; top: 20px; }
