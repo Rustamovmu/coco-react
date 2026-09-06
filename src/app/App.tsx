@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import "../css/app.css";
-import { Route, Switch, useLocation } from "react-router-dom";
+import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import HomePage from "./screens/homePage";
 import ProductsPage from "./screens/productsPage";
 import { OrdersPage } from "./screens/ordersPage";
@@ -13,6 +13,8 @@ import AuthenticationModal from "./components/auth";
 import useCart from "./hooks/useCart";
 import MemberService from "./services/MemberService";
 import { Member } from "../lib/types/member";
+import OrderService from "./services/OrderService";
+import { sweetErrorHandling, sweetTopSmallSuccessAlert } from "../lib/sweetAlert";
 
 const MEMBER_STORAGE_KEY = "memberData";
 
@@ -42,6 +44,7 @@ const readStoredMember = (): Member | null => {
 
 function App() {
   const location = useLocation();
+  const history = useHistory();
   const cart = useCart();
   const [authMember, setAuthMember] = useState<Member | null>(readStoredMember);
   const [signupOpen, setSignupOpen] = useState(false);
@@ -74,12 +77,29 @@ function App() {
     setAuthMember(null);
   }, []);
 
+  const handleCheckout = useCallback(async () => {
+    if (!authMember) {
+      openLogin();
+      return;
+    }
+    if (!cart.cartItems.length) return;
+    try {
+      await new OrderService().createOrder(cart.cartItems);
+      cart.onDeleteAll();
+      history.push("/orders");
+      await sweetTopSmallSuccessAlert("Order created successfully");
+    } catch (error) {
+      await sweetErrorHandling(error);
+    }
+  }, [authMember, cart, history, openLogin]);
+
   const navigationProps = {
     authMember,
     cart,
     onLogin: openLogin,
     onSignup: openSignup,
     onLogout: handleLogout,
+    onCheckout: handleCheckout,
   };
 
   return (
@@ -88,7 +108,7 @@ function App() {
       <main className="coco-app-shell__main">
         <Switch>
           <Route path="/products"><ProductsPage cart={cart} /></Route>
-          <Route path="/orders"><OrdersPage /></Route>
+          <Route path="/orders"><OrdersPage authMember={authMember} /></Route>
           <Route path="/member-page"><UserPage authMemberId={authMember?._id ?? null} onMemberUpdated={handleAuthenticated} /></Route>
           <Route path="/help"><HelpPage /></Route>
           <Route exact path="/"><HomePage /></Route>

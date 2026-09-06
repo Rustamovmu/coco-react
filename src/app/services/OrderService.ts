@@ -8,6 +8,22 @@ import {
 } from "../../lib/types/order";
 import { CartItem } from "../../lib/types/search";
 
+const imageUrl = (image?: string): string => {
+  if (!image) return "/img/noimage-list.svg";
+  if (/^(https?:)?\/\//.test(image) || image.startsWith("data:")) return image;
+  return `${serverApi}/${image.replace(/^\//, "")}`;
+};
+
+const normalizeOrder = (order: Order): Order => ({
+  ...order,
+  createdAt: new Date(order.createdAt),
+  updatedAt: new Date(order.updatedAt),
+  orderItems: order.orderItems.map((item) => ({
+    ...item,
+    productImage: imageUrl(item.productImage),
+  })),
+});
+
 class OrderService {
   private readonly path: string;
 
@@ -28,7 +44,7 @@ class OrderService {
       withCredentials: true,
     });
 
-    return result.data;
+    return normalizeOrder(result.data);
   }
 
   public async getMyOrders(input: OrderInquiry): Promise<Order[]> {
@@ -43,7 +59,7 @@ class OrderService {
       withCredentials: true,
     });
 
-    return result.data;
+    return result.data.map(normalizeOrder);
   }
 
   public async updateOrder(input: OrderUpdateInput): Promise<Order> {
@@ -51,7 +67,7 @@ class OrderService {
       withCredentials: true,
     });
 
-    return result.data;
+    return normalizeOrder(result.data);
   }
 }
 
