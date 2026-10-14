@@ -1,3 +1,4 @@
+import ProductImage from "../../components/media/ProductImage";
 import React from "react";
 import { Box, Button, Container, IconButton, Skeleton, Stack, Typography } from "@mui/material";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
@@ -57,7 +58,7 @@ function ProductCard({ product, onLike }: { product: Product; onLike: (event: Re
   return (
     <Link to={`/products/${product._id}`} className="featured-product-card">
       <Box className="featured-product-card__media">
-        <img src={getProductImage(product)} alt={product.productName} loading="lazy" />
+        <ProductImage src={getProductImage(product)} alt={product.productName} loading="lazy" />
         <IconButton className={`featured-product-card__like${product.isLiked ? " is-liked" : ""}`} onClick={(event) => onLike(event, product)} aria-label={product.isLiked ? `Unlike ${product.productName}` : `Like ${product.productName}`}>{product.isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}</IconButton>
         {hasDiscount && <span className="featured-product-card__badge">Sale</span>}
         <span className="featured-product-card__open" aria-hidden="true"><ArrowForwardRoundedIcon /></span>

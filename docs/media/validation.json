@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-15",
+  "frontendTests": {
+    "suitesPassed": 4,
+    "testsPassed": 11,
+    "command": "CI=true yarn test --watchAll=false --runInBand"
+  },
+  "frontendBuild": {
+    "passed": true,
+    "remainingWarnings": [
+      "MaterialTheme/index.ts unused maxWidth",
+      "MaterialTheme/shadow.ts anonymous default export",
+      "MaterialTheme/typography.ts anonymous default export"
+    ]
+  },
+  "backendBuild": {
+    "passed": true,
+    "publicAndViewsIncluded": true,
+    "newAdminImageBytes": 10674,
+    "squareFrameCssIncluded": true
+  },
+  "bundledFiles": {
+    "frontend": 21,
+    "backend": 1,
+    "frontendBytes": 12877107,
+    "allNewMediaBytes": 12887781,
+    "externalStockRuntimeReferences": 0,
+    "missingFiles": 0,
+    "gitignoredNewMedia": 0,
+    "ffmpegFullDecodePassed": true,
+    "responsivePosterSharedWithVideo": true
+  },
+  "http": {
+    "bundledChecks": 42,
+    "mp4RangeChecks": 4,
+    "spaRouteShellChecks": 12,
+    "existingUploadChecks": 30,
+    "adminPageAndImage": true,
+    "details": "http-verification.json"
+  },
+  "visual": {
+    "desktopChrome": "Development home film playback and pause observed",
+    "desktopSafari": [
+      "Production poster fallback/refresh",
+      "Development homepage sections, merchant photos, campaign poster and carousel imagery, community uploads, atelier and footer",
+      "Catalogue and product detail gallery switching",
+      "Help",
+      "Signed-out orders and profile",
+      "Admin licensed photograph and corrected square frame"
+    ],
+    "narrowCssLayouts": "Home/catalogue inspected with temporary Safari 200%/300% page zoom; restored 100%. This is layout inspection, not physical-device or exact viewport emulation.",
+    "notVerified": [
+      "Physical iOS/Android playback",
+      "Complete authenticated/device matrix",
+      "Slow-network browser behavior",
+      "LCP",
+      "CLS",
+      "Browser media-request performance profile",
+      "Full all-page tablet/mobile visual matrix"
+    ]
+  },
+  "databaseMediaRewrites": 0,
+  "merchantUploadsModified": 0,
+  "deploymentRun": false,
+  "preExistingAppEditPreserved": true
+}

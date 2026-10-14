@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { CartItem } from "../../lib/types/search";
+import { normalizeLegacyCartMedia } from "../../lib/cartMedia";
 
 const CART_STORAGE_KEY = "cartData";
 
@@ -13,7 +14,7 @@ const readCart = (): CartItem[] => {
     const storedCart = window.localStorage.getItem(CART_STORAGE_KEY);
     const parsedCart: unknown = storedCart ? JSON.parse(storedCart) : [];
 
-    return Array.isArray(parsedCart) ? (parsedCart as CartItem[]) : [];
+    return Array.isArray(parsedCart) ? normalizeLegacyCartMedia(parsedCart as CartItem[]) : [];
   } catch {
     return [];
   }

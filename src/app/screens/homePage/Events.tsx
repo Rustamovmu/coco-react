@@ -2,6 +2,8 @@ import React from "react";
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Link } from "react-router-dom";
+import { MEDIA } from "../../../lib/media";
+import LocalImage from "../../components/media/LocalImage";
 
 const atelierSteps = [
   { number: "01", title: "The idea", detail: "Each silhouette begins with movement, purpose, and the woman who will wear it." },
@@ -15,11 +17,10 @@ export default function Events() {
       <Container maxWidth="lg">
         <Box className="coco-atelier__layout">
           <Box className="coco-atelier__visual">
-            <Box
-              component="img"
-              src="https://primadonsanddonnas.com/cdn/shop/articles/1771477863371_image.png?v=1771477917"
-              alt="Designer developing a garment inside a light-filled fashion atelier"
-              loading="lazy"
+            <LocalImage
+              asset={MEDIA.images.atelier}
+              sizes="(max-width: 900px) 100vw, 45vw"
+              alt="Fashion designer working with fabric in a sewing studio"
             />
             <Box className="coco-atelier__visual-shade" />
             <Typography className="coco-atelier__image-label">THE MAKING OF COCO · 2026</Typography>
@@ -48,11 +49,9 @@ export default function Events() {
             </Box>
 
             <Stack direction="row" alignItems="center" className="coco-atelier__ending">
-              <Box
-                component="img"
-                src="https://burst.shopifycdn.com/photos/scissors-cutting-fabric.jpg?exif=0&format=pjpg&iptc=0&width=925"
-                alt="Tailor cutting fabric with precision"
-                loading="lazy"
+              <LocalImage
+                asset={MEDIA.images.sewingStudio}
+                alt="Designer measuring fabric at a sewing table"
               />
               <Button component={Link} to="/products" endIcon={<ArrowForwardIcon />}>
                 Discover the collection

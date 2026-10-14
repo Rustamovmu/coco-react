@@ -1,0 +1,431 @@
+{
+  "auditDate": "2026-10-15",
+  "referencesBefore": [
+    {
+      "file": "src/css/home.css",
+      "line": 921,
+      "text": "background: url(\"https://images.pexels.com/videos/7667427/pexels-photo-7667427.jpeg?auto=compress&dpr=1&h=750&w=1260\") center / cover;"
+    },
+    {
+      "file": "src/app/services/OrderService.ts",
+      "line": 12,
+      "text": "if (!image) return \"/img/noimage-list.svg\";"
+    },
+    {
+      "file": "src/app/components/headers/OtherNavbar.tsx",
+      "line": 28,
+      "text": "src=\"https://cdn.prod.website-files.com/62cdfaa90f276b83c68133c3/670770605779fbd1e74d651d_hans-isaacson-ioRyX4xxnWw-unsplash.jpg\""
+    },
+    {
+      "file": "src/app/components/headers/StoreNavigation.tsx",
+      "line": 26,
+      "text": ": \"/icons/default-user.svg\";"
+    },
+    {
+      "file": "src/app/components/headers/HomeNavbar.tsx",
+      "line": 17,
+      "text": "poster=\"https://images.pexels.com/photos/6069552/pexels-photo-6069552.jpeg?auto=compress&cs=tinysrgb&w=1600\""
+    },
+    {
+      "file": "src/app/components/headers/HomeNavbar.tsx",
+      "line": 21,
+      "text": "src=\"https://videos.pexels.com/video-files/8306453/8306453-uhd_4096_2160_25fps.mp4\""
+    },
+    {
+      "file": "src/app/screens/productsPage/catalog.ts",
+      "line": 4,
+      "text": "const image = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1200&q=85`;"
+    },
+    {
+      "file": "src/app/screens/productsPage/catalog.ts",
+      "line": 28,
+      "text": "export const getProductImage = (product: Product) => product.productImages[0] || \"/img/noimage-list.svg\";"
+    },
+    {
+      "file": "src/app/screens/homePage/ActiveUsers.tsx",
+      "line": 15,
+      "text": ": \"/icons/default-user.svg\";"
+    },
+    {
+      "file": "src/app/screens/homePage/Events.tsx",
+      "line": 20,
+      "text": "src=\"https://primadonsanddonnas.com/cdn/shop/articles/1771477863371_image.png?v=1771477917\""
+    },
+    {
+      "file": "src/app/screens/homePage/Events.tsx",
+      "line": 53,
+      "text": "src=\"https://burst.shopifycdn.com/photos/scissors-cutting-fabric.jpg?exif=0&format=pjpg&iptc=0&width=925\""
+    },
+    {
+      "file": "src/app/screens/homePage/Advertisement.tsx",
+      "line": 15,
+      "text": "image: \"https://images.pexels.com/photos/1884584/pexels-photo-1884584.jpeg?auto=compress&cs=tinysrgb&w=1400\","
+    },
+    {
+      "file": "src/app/screens/homePage/Advertisement.tsx",
+      "line": 20,
+      "text": "image: \"https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg?auto=compress&cs=tinysrgb&w=1400\","
+    },
+    {
+      "file": "src/app/screens/homePage/Advertisement.tsx",
+      "line": 25,
+      "text": "image: \"https://images.pexels.com/photos/6069552/pexels-photo-6069552.jpeg?auto=compress&cs=tinysrgb&w=1400\","
+    },
+    {
+      "file": "src/app/screens/homePage/Advertisement.tsx",
+      "line": 55,
+      "text": "poster=\"https://images.pexels.com/videos/7667427/pexels-photo-7667427.jpeg?auto=compress&dpr=1&h=750&w=1260\""
+    },
+    {
+      "file": "src/app/screens/homePage/Advertisement.tsx",
+      "line": 59,
+      "text": "src=\"https://videos.pexels.com/video-files/7667427/7667427-uhd_4096_2160_25fps.mp4\""
+    }
+  ],
+  "demoProductPhotosBefore": [
+    {
+      "productId": "classic-oversized-shirt",
+      "productName": "Classic Oversized Shirt",
+      "originalSources": [
+        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "originalDimensions": "requested width 1200; actual dimensions not verified because these stock photos are not authenticated product photographs",
+      "assessment": "unverified demo product imagery; some photos depict unrelated or branded items",
+      "action": "removed stock photo references; empty image arrays use explicit local photography-unavailable icon; fixture names/prices/stock/sizes unchanged",
+      "genuineProductPhotography": "not available for these demo fixtures; no arbitrary stock replacements"
+    },
+    {
+      "productId": "tailored-wide-leg-pants",
+      "productName": "Tailored Wide-Leg Pants",
+      "originalSources": [
+        "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1506629905607-d9c297d3d9bc?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "originalDimensions": "requested width 1200; actual dimensions not verified because these stock photos are not authenticated product photographs",
+      "assessment": "unverified demo product imagery; some photos depict unrelated or branded items",
+      "action": "removed stock photo references; empty image arrays use explicit local photography-unavailable icon; fixture names/prices/stock/sizes unchanged",
+      "genuineProductPhotography": "not available for these demo fixtures; no arbitrary stock replacements"
+    },
+    {
+      "productId": "minimal-leather-sneakers",
+      "productName": "Minimal Leather Sneakers",
+      "originalSources": [
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=85",
+        "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "originalDimensions": "requested width 1200; actual dimensions not verified because these stock photos are not authenticated product photographs",
+      "assessment": "unverified demo product imagery; some photos depict unrelated or branded items",
+      "action": "removed stock photo references; empty image arrays use explicit local photography-unavailable icon; fixture names/prices/stock/sizes unchanged",
+      "genuineProductPhotography": "not available for these demo fixtures; no arbitrary stock replacements"
+    },
+    {
+      "productId": "everyday-bucket-hat",
+      "productName": "Everyday Bucket Hat",
+      "originalSources": [
+        "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "originalDimensions": "requested width 1200; actual dimensions not verified because these stock photos are not authenticated product photographs",
+      "assessment": "unverified demo product imagery; some photos depict unrelated or branded items",
+      "action": "removed stock photo references; empty image arrays use explicit local photography-unavailable icon; fixture names/prices/stock/sizes unchanged",
+      "genuineProductPhotography": "not available for these demo fixtures; no arbitrary stock replacements"
+    },
+    {
+      "productId": "linen-blend-blazer",
+      "productName": "Linen Blend Blazer",
+      "originalSources": [
+        "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "originalDimensions": "requested width 1200; actual dimensions not verified because these stock photos are not authenticated product photographs",
+      "assessment": "unverified demo product imagery; some photos depict unrelated or branded items",
+      "action": "removed stock photo references; empty image arrays use explicit local photography-unavailable icon; fixture names/prices/stock/sizes unchanged",
+      "genuineProductPhotography": "not available for these demo fixtures; no arbitrary stock replacements"
+    },
+    {
+      "productId": "relaxed-cargo-pants",
+      "productName": "Relaxed Cargo Pants",
+      "originalSources": [
+        "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "originalDimensions": "requested width 1200; actual dimensions not verified because these stock photos are not authenticated product photographs",
+      "assessment": "unverified demo product imagery; some photos depict unrelated or branded items",
+      "action": "removed stock photo references; empty image arrays use explicit local photography-unavailable icon; fixture names/prices/stock/sizes unchanged",
+      "genuineProductPhotography": "not available for these demo fixtures; no arbitrary stock replacements"
+    },
+    {
+      "productId": "coco-city-sneakers",
+      "productName": "Coco City Sneakers",
+      "originalSources": [
+        "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "originalDimensions": "requested width 1200; actual dimensions not verified because these stock photos are not authenticated product photographs",
+      "assessment": "unverified demo product imagery; some photos depict unrelated or branded items",
+      "action": "removed stock photo references; empty image arrays use explicit local photography-unavailable icon; fixture names/prices/stock/sizes unchanged",
+      "genuineProductPhotography": "not available for these demo fixtures; no arbitrary stock replacements"
+    },
+    {
+      "productId": "structured-bucket-hat",
+      "productName": "Structured Bucket Hat",
+      "originalSources": [
+        "https://images.unsplash.com/photo-1534215754734-18e55d13e346?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "originalDimensions": "requested width 1200; actual dimensions not verified because these stock photos are not authenticated product photographs",
+      "assessment": "unverified demo product imagery; some photos depict unrelated or branded items",
+      "action": "removed stock photo references; empty image arrays use explicit local photography-unavailable icon; fixture names/prices/stock/sizes unchanged",
+      "genuineProductPhotography": "not available for these demo fixtures; no arbitrary stock replacements"
+    },
+    {
+      "productId": "woven-weekender",
+      "productName": "Woven Weekender",
+      "originalSources": [
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "originalDimensions": "requested width 1200; actual dimensions not verified because these stock photos are not authenticated product photographs",
+      "assessment": "unverified demo product imagery; some photos depict unrelated or branded items",
+      "action": "removed stock photo references; empty image arrays use explicit local photography-unavailable icon; fixture names/prices/stock/sizes unchanged",
+      "genuineProductPhotography": "not available for these demo fixtures; no arbitrary stock replacements"
+    },
+    {
+      "productId": "soft-knit-cardigan",
+      "productName": "Soft Knit Cardigan",
+      "originalSources": [
+        "https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=1200&q=85"
+      ],
+      "originalDimensions": "requested width 1200; actual dimensions not verified because these stock photos are not authenticated product photographs",
+      "assessment": "unverified demo product imagery; some photos depict unrelated or branded items",
+      "action": "removed stock photo references; empty image arrays use explicit local photography-unavailable icon; fixture names/prices/stock/sizes unchanged",
+      "genuineProductPhotography": "not available for these demo fixtures; no arbitrary stock replacements"
+    }
+  ],
+  "architecture": "Create React App + React 18 + Router v5 + Redux; Express/Mongoose + EJS admin. Frontend static public/media and backend src/public/media are bundled; uploads stay persistent backend data.",
+  "database": {
+    "readOnly": true,
+    "products": [
+      {
+        "name": "Nike Jordan ",
+        "collection": "SHOES",
+        "images": [
+          "uploads/products/dcec155c-29d2-4113-adae-fe1eaa931657.jpeg",
+          "uploads/products/b7fa422e-7ae3-4436-ac73-2949254c3d9a.jpeg",
+          "uploads/products/c7624838-ef0c-4176-86c1-37f8d7c2bcec.jpeg"
+        ]
+      },
+      {
+        "name": "Hat",
+        "collection": "HAT",
+        "images": [
+          "uploads/products/98417118-e1d3-4637-824d-369f00582829.jpeg",
+          "uploads/products/c430fa0b-a009-4665-846e-34889132ec7c.jpeg",
+          "uploads/products/938dfaf7-4005-499b-aa5e-e14d70843891.jpeg",
+          "uploads/products/f6352f81-e7bf-425e-9995-71e672ce57a3.jpeg"
+        ]
+      },
+      {
+        "name": "Italian trousers",
+        "collection": "PANTS",
+        "images": [
+          "uploads/products/00760382-d5db-45ed-b781-afbdef0bae93.jpeg",
+          "uploads/products/96f35036-0d6b-4cab-aae5-702df66ef03e.jpeg",
+          "uploads/products/d01afb71-fb28-47da-be01-eb4ae3797580.jpeg",
+          "uploads/products/132ba8a7-ceef-4402-8886-ae1e6a8714f2.jpeg"
+        ]
+      },
+      {
+        "name": "T shirt",
+        "collection": "CLOTHE",
+        "images": [
+          "uploads/products/5ef512d9-fda1-4662-a787-95636b680116.jpeg",
+          "uploads/products/b8470d75-a2f6-46ce-ad18-f6fd94609e03.jpeg",
+          "uploads/products/40ee55b3-d824-4cce-a03b-56b934741b40.jpeg"
+        ]
+      },
+      {
+        "name": "Jeep Hard Core 001",
+        "collection": "CLOTHE",
+        "images": [
+          "uploads/products/aafbf0d7-a58a-4cb1-9b38-2da12d03653a.jpeg"
+        ]
+      },
+      {
+        "name": "Backpack",
+        "collection": "OTHERS",
+        "images": [
+          "uploads/products/5d3cb705-970b-4cc2-88a6-dc971b9ec1a2.jpeg"
+        ]
+      },
+      {
+        "name": "Bomber Jacket",
+        "collection": "CLOTHE",
+        "images": [
+          "uploads/products/f1cb7d85-96b7-492d-bca9-ad473035bed3.jpeg",
+          "uploads/products/84ed9f9b-ef96-4256-a66e-d6a6c7f65fbc.jpeg",
+          "uploads/products/23a4d4fc-7811-4d86-847b-709ebb394ddc.jpeg"
+        ]
+      },
+      {
+        "name": "Pants ",
+        "collection": "CLOTHE",
+        "images": [
+          "uploads/products/4e02202f-fa39-4a44-a326-b38e801c197f.jpeg",
+          "uploads/products/be0c889c-c97a-4be8-88e1-2913ad6b0e7b.jpeg",
+          "uploads/products/efc14cc3-59db-488d-a2d8-ab087bdb5d19.jpeg"
+        ]
+      }
+    ],
+    "uniqueReferencedUploadPaths": 30,
+    "remoteMediaPaths": 0,
+    "missingFiles": 0,
+    "recordsChanged": 0
+  },
+  "unknownOriginalDimensions": [
+    "third-party Webflow boutique banner: not downloaded; licensing not established",
+    "competitor-hosted atelier PNG: not downloaded; licensing not established",
+    "Burst fabric image: not downloaded; replaced with licensed Pexels photo",
+    "old Pexels campaign preview poster: dimensions not fetched; replaced by matching decoded film frame"
+  ],
+  "inspectedFrontendFiles": [
+    "public/apple-touch-icon.png",
+    "public/favicon.ico",
+    "public/favicon.svg",
+    "public/icon-192.png",
+    "public/icon-512.png",
+    "public/index.html",
+    "public/manifest.json",
+    "public/robots.txt",
+    "src/app/App.test.tsx",
+    "src/app/App.tsx",
+    "src/app/MaterialTheme/index.ts",
+    "src/app/MaterialTheme/shadow.ts",
+    "src/app/MaterialTheme/styled.ts",
+    "src/app/MaterialTheme/typography.ts",
+    "src/app/components/auth/index.tsx",
+    "src/app/components/divider/index.tsx",
+    "src/app/components/footer/index.tsx",
+    "src/app/components/headers/HomeNavbar.tsx",
+    "src/app/components/headers/OtherNavbar.tsx",
+    "src/app/components/headers/ShoppingCart.tsx",
+    "src/app/components/headers/StoreNavigation.tsx",
+    "src/app/components/payment/PaymentDetailsForm.tsx",
+    "src/app/context/ContextProvider.tsx",
+    "src/app/hooks.ts",
+    "src/app/hooks/useCart.ts",
+    "src/app/hooks/useGlobals.ts",
+    "src/app/hooks/useMediaQuery.ts",
+    "src/app/screens/helpPage/index.tsx",
+    "src/app/screens/homePage/ActiveUsers.tsx",
+    "src/app/screens/homePage/Advertisement.tsx",
+    "src/app/screens/homePage/Events.tsx",
+    "src/app/screens/homePage/FeaturedProducts.tsx",
+    "src/app/screens/homePage/NewArrivals.tsx",
+    "src/app/screens/homePage/Statistics.tsx",
+    "src/app/screens/homePage/index.tsx",
+    "src/app/screens/homePage/selector.ts",
+    "src/app/screens/homePage/slice.ts",
+    "src/app/screens/ordersPage/FinishedOrders.tsx",
+    "src/app/screens/ordersPage/OrderList.tsx",
+    "src/app/screens/ordersPage/PausedOrders.tsx",
+    "src/app/screens/ordersPage/ProcessOrders.tsx",
+    "src/app/screens/ordersPage/index.tsx",
+    "src/app/screens/ordersPage/selector.ts",
+    "src/app/screens/ordersPage/slice.ts",
+    "src/app/screens/productsPage/ChosenProduct.tsx",
+    "src/app/screens/productsPage/Products.tsx",
+    "src/app/screens/productsPage/catalog.ts",
+    "src/app/screens/productsPage/index.tsx",
+    "src/app/screens/productsPage/selector.ts",
+    "src/app/screens/productsPage/slice.ts",
+    "src/app/screens/userPage/Settings.tsx",
+    "src/app/screens/userPage/index.tsx",
+    "src/app/services/MemberService.ts",
+    "src/app/services/OrderService.ts",
+    "src/app/services/ProductService.ts",
+    "src/app/store.ts",
+    "src/app/theme.tsx",
+    "src/css/app.css",
+    "src/css/footer.css",
+    "src/css/help.css",
+    "src/css/home.css",
+    "src/css/index.css",
+    "src/css/media.css",
+    "src/css/navbar.css",
+    "src/css/order.css",
+    "src/css/products.css",
+    "src/css/userPage.css",
+    "src/index.css",
+    "src/index.tsx",
+    "src/lib/cartMedia.test.ts",
+    "src/lib/cartMedia.ts",
+    "src/lib/config.ts",
+    "src/lib/data/faq.ts",
+    "src/lib/enums/member.enum.ts",
+    "src/lib/enums/order.enum.ts",
+    "src/lib/enums/product.enum.ts",
+    "src/lib/enums/view.enum.ts",
+    "src/lib/media.ts",
+    "src/lib/payment.ts",
+    "src/lib/pricing.test.ts",
+    "src/lib/pricing.ts",
+    "src/lib/sweetAlert.ts",
+    "src/lib/types/cart.ts",
+    "src/lib/types/common.ts",
+    "src/lib/types/member.ts",
+    "src/lib/types/order.ts",
+    "src/lib/types/product.ts",
+    "src/lib/types/screen.ts",
+    "src/lib/types/search.ts",
+    "src/react-app-env.d.ts",
+    "src/reportWebVitals.ts",
+    "src/setupTests.ts"
+  ],
+  "inspectedBackendFiles": [
+    "src/app.ts",
+    "src/controllers/admin.controller.ts",
+    "src/controllers/member.controller.ts",
+    "src/controllers/order.controller.ts",
+    "src/controllers/product.controller.ts",
+    "src/libs/Errors.ts",
+    "src/libs/config.ts",
+    "src/libs/enums/member.enum.ts",
+    "src/libs/enums/order.enum.ts",
+    "src/libs/enums/product.enum.ts",
+    "src/libs/types/common.ts",
+    "src/libs/types/member.ts",
+    "src/libs/types/order.ts",
+    "src/libs/types/product.ts",
+    "src/libs/utils/uploader.ts",
+    "src/models/Auth.service.ts",
+    "src/models/Member.service.ts",
+    "src/models/Order.service.ts",
+    "src/models/Product.service.ts",
+    "src/public/css/home.css",
+    "src/public/css/login.css",
+    "src/public/css/main.css",
+    "src/public/css/orders.css",
+    "src/public/css/products.css",
+    "src/public/css/signup.css",
+    "src/public/css/users.css",
+    "src/public/img/coco-fashion-hero.png",
+    "src/public/img/favicon.svg",
+    "src/public/js/auth-nova.js",
+    "src/public/js/home.js",
+    "src/public/js/main.js",
+    "src/public/js/orders.js",
+    "src/public/js/products.js",
+    "src/public/js/signup.js",
+    "src/public/js/users.js",
+    "src/router.admin.ts",
+    "src/router.ts",
+    "src/schema/Member.model.ts",
+    "src/schema/Order.model.ts",
+    "src/schema/Product.model.ts",
+    "src/server.ts",
+    "src/views/home.ejs",
+    "src/views/includes/header.ejs",
+    "src/views/login.ejs",
+    "src/views/orders.ejs",
+    "src/views/products.ejs",
+    "src/views/signup.ejs",
+    "src/views/users.ejs"
+  ],
+  "legacyCartMediaMigration": "On read, replace only old Unsplash images for ten known demo IDs. Preserve quantities, prices, variants, merchant and local images; repeated normalization is idempotent."
+}

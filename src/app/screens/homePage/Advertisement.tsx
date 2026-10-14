@@ -9,26 +9,31 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { MEDIA } from "../../../lib/media";
+import BackgroundVideo from "../../components/media/BackgroundVideo";
+import LocalImage from "../../components/media/LocalImage";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const campaignSlides = [
   {
-    image: "https://images.pexels.com/photos/1884584/pexels-photo-1884584.jpeg?auto=compress&cs=tinysrgb&w=1400",
+    image: MEDIA.images.softTailoring,
     label: "Soft tailoring",
     number: "01",
   },
   {
-    image: "https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg?auto=compress&cs=tinysrgb&w=1400",
+    image: MEDIA.images.neutralEdit,
     label: "The neutral edit",
     number: "02",
   },
   {
-    image: "https://images.pexels.com/photos/6069552/pexels-photo-6069552.jpeg?auto=compress&cs=tinysrgb&w=1400",
+    image: MEDIA.images.everydayLayers,
     label: "Everyday layers",
     number: "03",
   },
 ];
 
 export default function Advertisement() {
+  const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
   return (
     <Box component="section" className="coco-campaign" aria-labelledby="campaign-title">
       <Container maxWidth="lg">
@@ -46,20 +51,7 @@ export default function Advertisement() {
 
         <Box className="coco-campaign__layout">
           <Box className="coco-campaign__film">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              poster="https://images.pexels.com/videos/7667427/pexels-photo-7667427.jpeg?auto=compress&dpr=1&h=750&w=1260"
-              aria-label="COCO fashion campaign film"
-            >
-              <source
-                src="https://videos.pexels.com/video-files/7667427/7667427-uhd_4096_2160_25fps.mp4"
-                type="video/mp4"
-              />
-            </video>
+            <BackgroundVideo src={MEDIA.campaign.video} mobileSrc={MEDIA.campaign.mobileVideo} poster={MEDIA.campaign.poster} label="campaign background film" lazy />
             <Box className="coco-campaign__film-shade" />
             <Box className="coco-campaign__film-copy">
               <Stack direction="row" alignItems="center" className="coco-campaign__watch">
@@ -80,14 +72,15 @@ export default function Advertisement() {
               slidesPerView={1}
               loop
               grabCursor
-              autoplay={{ delay: 4500, disableOnInteraction: false }}
+              autoplay={reducedMotion ? false : { delay: 4500, disableOnInteraction: false }}
+              speed={reducedMotion ? 0 : 300}
               navigation={{ prevEl: ".coco-campaign__previous", nextEl: ".coco-campaign__next" }}
               pagination={{ clickable: true }}
             >
               {campaignSlides.map((slide) => (
                 <SwiperSlide key={slide.number}>
                   <Box className="coco-campaign__slide">
-                    <Box component="img" src={slide.image} alt={slide.label} loading="lazy" />
+                    <LocalImage asset={slide.image} alt={slide.label} sizes="(max-width: 900px) 100vw, 45vw" />
                     <Box className="coco-campaign__slide-shade" />
                     <Typography className="coco-campaign__slide-number">{slide.number}</Typography>
                     <Typography className="coco-campaign__slide-label">{slide.label}</Typography>

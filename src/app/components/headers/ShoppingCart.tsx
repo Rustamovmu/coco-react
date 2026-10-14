@@ -1,3 +1,4 @@
+import ProductImage from "../media/ProductImage";
 import React, { useState } from "react";
 import { Badge, Box, Button, IconButton, Menu, Stack, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
@@ -99,7 +100,7 @@ export default function ShoppingCart({ cart, onCheckout }: ShoppingCartProps) {
 function CartRow({ item, cart }: { item: CartItem; cart: CartInterface }) {
   return (
     <Stack direction="row" spacing={1.5} alignItems="center">
-      <img className="coco-cart-menu__image" src={item.imageUrl} alt={item.productName} />
+      <ProductImage className="coco-cart-menu__image" src={item.imageUrl} alt={item.productName} />
       <Box className="coco-cart-menu__item-details">
         <Typography>{item.productName}</Typography>
         <Typography variant="caption">

@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "date": "2026-10-14",
+  "notes": "Original means the actual downloaded input, not the provider's largest still-photo master. Image downloads are bounded to displayed size. Videos use the existing 4K originals because tested HD URLs were unavailable. No downloaded photography is assigned to a merchant product.",
+  "assets": [
+    {
+      "originalFilename": "coco-soft-tailoring.jpg",
+      "originalSourceUrl": "https://images.pexels.com/photos/1884584/pexels-photo-1884584.jpeg?w=1400",
+      "sourcePage": "https://www.pexels.com/photo/1884584/",
+      "provider": "Pexels",
+      "creator": null,
+      "license": "Pexels License",
+      "licenseReference": "https://www.pexels.com/license/",
+      "commercialUseReference": "https://help.pexels.com/hc/en-us/articles/360042295214-Can-I-use-the-photos-and-videos-for-a-commercial-project",
+      "attributionRequired": false,
+      "licenseVerifiedDate": "2026-10-14",
+      "downloadDate": "2026-10-14",
+      "intendedUse": "Advertisement slide 01",
+      "restrictions": "Editorial illustration only; no implied model/brand endorsement, no resale as stock or unaltered prints. Not merchant product photography.",
+      "sourcePageStatus": "Short-ID detail page inaccessible (403); original file downloaded from official Pexels CDN; provider-wide license verified. Creator not verified.",
+      "originalBytes": 125497,
+      "originalSha256": "da3907cd366ede16c55d7bf7a2309960a8b79446ad74e3dfd1c6494cc2c3aebd",
+      "files": [
+        {
+          "localFilename": "soft-tailoring-640.webp",
+          "localPath": "/media/images/campaigns/soft-tailoring-640.webp",
+          "width": 640,
+          "height": 427,
+          "format": "WebP",
+          "optimizedBytes": 23620,
+          "sha256": "a26e82c773896731a7d9fa9eb650ed50644b643deef1e9d003bc42d25e1e7232"
+        },
+        {
+          "localFilename": "soft-tailoring-1200.webp",
+          "localPath": "/media/images/campaigns/soft-tailoring-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "format": "WebP",
+          "optimizedBytes": 60524,
+          "sha256": "35fb94cbad6a2bc92f235c34d9c74c03cfc47e4ce00fe85c724c9265ae5421c2"
+        }
+      ],
+      "originalWidth": 1400,
+      "originalHeight": 933,
+      "originalFormat": "JPEG"
+    },
+    {
+      "originalFilename": "coco-neutral-edit.jpg",
+      "originalSourceUrl": "https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg?w=1400",
+      "sourcePage": "https://www.pexels.com/photo/994523/",
+      "provider": "Pexels",
+      "creator": null,
+      "license": "Pexels License",
+      "licenseReference": "https://www.pexels.com/license/",
+      "commercialUseReference": "https://help.pexels.com/hc/en-us/articles/360042295214-Can-I-use-the-photos-and-videos-for-a-commercial-project",
+      "attributionRequired": false,
+      "licenseVerifiedDate": "2026-10-14",
+      "downloadDate": "2026-10-14",
+      "intendedUse": "Advertisement slide 02",
+      "restrictions": "Editorial illustration only; no implied model/brand endorsement, no resale as stock or unaltered prints. Not merchant product photography.",
+      "sourcePageStatus": "Short-ID detail page inaccessible (403); original file downloaded from official Pexels CDN; provider-wide license verified. Creator not verified.",
+      "originalBytes": 93198,
+      "originalSha256": "39b93b4ee7105e809ea13ccdb3a27eeb2c6efd6e8840a078312e5352e4994d59",
+      "files": [
+        {
+          "localFilename": "neutral-edit-640.webp",
+          "localPath": "/media/images/campaigns/neutral-edit-640.webp",
+          "width": 640,
+          "height": 427,
+          "format": "WebP",
+          "optimizedBytes": 17078,
+          "sha256": "ae992458d6ac1fde2e9a8d96baf9838a84fb02d5fe4ad28c97720d34c21efd18"
+        },
+        {
+          "localFilename": "neutral-edit-1200.webp",
+          "localPath": "/media/images/campaigns/neutral-edit-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "format": "WebP",
+          "optimizedBytes": 36290,
+          "sha256": "fbbba71f12e61aadad063be8270d068ed3a0929fc2abbb0a87fbc1381fbe6bac"
+        }
+      ],
+      "originalWidth": 1400,
+      "originalHeight": 933,
+      "originalFormat": "JPEG"
+    },
+    {
+      "originalFilename": "coco-everyday-layers.jpg",
+      "originalSourceUrl": "https://images.pexels.com/photos/6069552/pexels-photo-6069552.jpeg?w=1400",
+      "sourcePage": "https://www.pexels.com/photo/6069552/",
+      "provider": "Pexels",
+      "creator": null,
+      "license": "Pexels License",
+      "licenseReference": "https://www.pexels.com/license/",
+      "commercialUseReference": "https://help.pexels.com/hc/en-us/articles/360042295214-Can-I-use-the-photos-and-videos-for-a-commercial-project",
+      "attributionRequired": false,
+      "licenseVerifiedDate": "2026-10-14",
+      "downloadDate": "2026-10-14",
+      "intendedUse": "Advertisement slide 03",
+      "restrictions": "Editorial illustration only; no implied model/brand endorsement, no resale as stock or unaltered prints. Not merchant product photography.",
+      "sourcePageStatus": "Short-ID detail page inaccessible (403); original file downloaded from official Pexels CDN; provider-wide license verified. Creator not verified.",
+      "originalBytes": 137787,
+      "originalSha256": "9caaf0715553cc35d26491a12712b6b25ebe986c547f7d9402360c2c501293e2",
+      "files": [
+        {
+          "localFilename": "everyday-layers-640.webp",
+          "localPath": "/media/images/campaigns/everyday-layers-640.webp",
+          "width": 640,
+          "height": 427,
+          "format": "WebP",
+          "optimizedBytes": 28186,
+          "sha256": "b3c8b3768f2fd3f57f6d5e169026c6a18c702998ed7efb33c0e862b4d5425aa4"
+        },
+        {
+          "localFilename": "everyday-layers-1200.webp",
+          "localPath": "/media/images/campaigns/everyday-layers-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "format": "WebP",
+          "optimizedBytes": 63640,
+          "sha256": "8cd3403504e38b7c616a26a42c51c20e4bb80c7e5b03f016964b235f6fb19edc"
+        }
+      ],
+      "originalWidth": 1400,
+      "originalHeight": 933,
+      "originalFormat": "JPEG"
+    },
+    {
+      "originalFilename": "coco-boutique.jpg",
+      "originalSourceUrl": "https://images.pexels.com/photos/4947543/pexels-photo-4947543.jpeg?w=1600",
+      "sourcePage": "https://www.pexels.com/photo/collection-of-female-clothes-on-rack-in-boutique-4947543/",
+      "provider": "Pexels",
+      "creator": "Maria Orlova",
+      "license": "Pexels License",
+      "licenseReference": "https://www.pexels.com/license/",
+      "commercialUseReference": "https://help.pexels.com/hc/en-us/articles/360042295214-Can-I-use-the-photos-and-videos-for-a-commercial-project",
+      "attributionRequired": false,
+      "licenseVerifiedDate": "2026-10-14",
+      "downloadDate": "2026-10-14",
+      "intendedUse": "OtherNavbar on products, orders, profile and help",
+      "restrictions": "Editorial illustration only; no implied model/brand endorsement, no resale as stock or unaltered prints. Not merchant product photography.",
+      "sourcePageStatus": "Verified indexed free photo page",
+      "originalBytes": 504971,
+      "originalSha256": "202e8bbf1f0823ad032495c0e588eed3198a9c3d5d153424c551d59e146d38e3",
+      "files": [
+        {
+          "localFilename": "neutral-boutique-640.webp",
+          "localPath": "/media/images/banners/neutral-boutique-640.webp",
+          "width": 640,
+          "height": 192,
+          "format": "WebP",
+          "optimizedBytes": 16520,
+          "sha256": "a83b35b7a7b52d33e25b0e2e66842640b182ab3f088be08516b9c94fcae49f43"
+        },
+        {
+          "localFilename": "neutral-boutique-1600.webp",
+          "localPath": "/media/images/banners/neutral-boutique-1600.webp",
+          "width": 1600,
+          "height": 480,
+          "format": "WebP",
+          "optimizedBytes": 71182,
+          "sha256": "b703e5f1e5d16843fe58a96c20e21b8850ed4a19f81f61380ed325fdd21f6af6"
+        }
+      ],
+      "originalWidth": 1600,
+      "originalHeight": 2400,
+      "originalFormat": "JPEG",
+      "optimization": "Landscape crop centered on the clothing rack for the short page banner"
+    },
+    {
+      "originalFilename": "coco-atelier.jpg",
+      "originalSourceUrl": "https://images.pexels.com/photos/9849937/pexels-photo-9849937.jpeg?w=1200",
+      "sourcePage": "https://www.pexels.com/photo/fashion-designer-working-with-fabrics-9849937/",
+      "provider": "Pexels",
+      "creator": "Ron Lach",
+      "license": "Pexels License",
+      "licenseReference": "https://www.pexels.com/license/",
+      "commercialUseReference": "https://help.pexels.com/hc/en-us/articles/360042295214-Can-I-use-the-photos-and-videos-for-a-commercial-project",
+      "attributionRequired": false,
+      "licenseVerifiedDate": "2026-10-14",
+      "downloadDate": "2026-10-14",
+      "intendedUse": "Events atelier editorial image",
+      "restrictions": "Editorial illustration only; no implied model/brand endorsement, no resale as stock or unaltered prints. Not merchant product photography.",
+      "sourcePageStatus": "Verified indexed free photo page",
+      "originalBytes": 194808,
+      "originalSha256": "5951c6bb92f0d3b562ea91a5abd61e43d4cab1bb701b4a515e1c1ea8ad9ea6a7",
+      "files": [
+        {
+          "localFilename": "fashion-designer-at-work-640.webp",
+          "localPath": "/media/images/editorial/fashion-designer-at-work-640.webp",
+          "width": 640,
+          "height": 960,
+          "format": "WebP",
+          "optimizedBytes": 39104,
+          "sha256": "6a5e5b7696a88b4d8545f506ce619ab9405dc7182a7434f7dd385c07dab61c41"
+        },
+        {
+          "localFilename": "fashion-designer-at-work-1200.webp",
+          "localPath": "/media/images/editorial/fashion-designer-at-work-1200.webp",
+          "width": 1200,
+          "height": 1800,
+          "format": "WebP",
+          "optimizedBytes": 111924,
+          "sha256": "8410687c72804546b859d5410ca052c60815d3702bf25a90626456c58d778872"
+        }
+      ],
+      "originalWidth": 1200,
+      "originalHeight": 1800,
+      "originalFormat": "JPEG"
+    },
+    {
+      "originalFilename": "coco-sewing-studio.jpg",
+      "originalSourceUrl": "https://images.pexels.com/photos/8769327/pexels-photo-8769327.jpeg?w=800",
+      "sourcePage": "https://www.pexels.com/photo/woman-working-at-a-desk-in-a-sewing-studio-8769327/",
+      "provider": "Pexels",
+      "creator": "Gustavo Fring",
+      "license": "Pexels License",
+      "licenseReference": "https://www.pexels.com/license/",
+      "commercialUseReference": "https://help.pexels.com/hc/en-us/articles/360042295214-Can-I-use-the-photos-and-videos-for-a-commercial-project",
+      "attributionRequired": false,
+      "licenseVerifiedDate": "2026-10-14",
+      "downloadDate": "2026-10-14",
+      "intendedUse": "Events sewing detail",
+      "restrictions": "Editorial illustration only; no implied model/brand endorsement, no resale as stock or unaltered prints. Not merchant product photography.",
+      "sourcePageStatus": "Verified indexed free photo page",
+      "originalBytes": 68138,
+      "originalSha256": "584b4c0d51a6683ef61d4281fb6e7e8f261de67ecf10b344fa3e5cc7ef52ef8a",
+      "files": [
+        {
+          "localFilename": "sewing-studio-320.webp",
+          "localPath": "/media/images/thumbnails/sewing-studio-320.webp",
+          "width": 320,
+          "height": 213,
+          "format": "WebP",
+          "optimizedBytes": 13398,
+          "sha256": "c95010f446045a3e88a409792fd35892c0e4425018b5c668ebbf5b2db442b171"
+        }
+      ],
+      "originalWidth": 800,
+      "originalHeight": 533,
+      "originalFormat": "JPEG"
+    },
+    {
+      "originalFilename": "coco-hero-original.mp4",
+      "originalSourceUrl": "https://videos.pexels.com/video-files/8306453/8306453-uhd_4096_2160_25fps.mp4",
+      "sourcePage": "https://www.pexels.com/video/8306453/",
+      "provider": "Pexels",
+      "creator": null,
+      "license": "Pexels License",
+      "licenseReference": "https://www.pexels.com/license/",
+      "commercialUseReference": "https://help.pexels.com/hc/en-us/articles/360042295214-Can-I-use-the-photos-and-videos-for-a-commercial-project",
+      "attributionRequired": false,
+      "licenseVerifiedDate": "2026-10-14",
+      "downloadDate": "2026-10-14",
+      "intendedUse": "HomeNavbar hero and matching posters",
+      "restrictions": "Editorial illustration only; no implied model/brand endorsement, no resale as stock or unaltered prints. Not merchant product photography.",
+      "sourcePageStatus": "Short-ID detail page inaccessible (403); original file downloaded from official Pexels CDN; provider-wide license verified. Creator not verified.",
+      "originalBytes": 40018842,
+      "originalSha256": "aa662f3a3bef055c1ec8a7b8ac2b2f1c70107b34ea091e2042b61c77fee3a5ba",
+      "files": [
+        {
+          "localFilename": "hero-fashion-1600.mp4",
+          "localPath": "/media/videos/hero/hero-fashion-1600.mp4",
+          "width": 0,
+          "format": "H.264 MP4, yuv420p, faststart, no audio",
+          "optimizedBytes": 5973418,
+          "sha256": "a8d3ba6ca8f0fa93c3ff02c8ad0b60aa9ce068dd8d68d9c0d8839ee6727f2e8d",
+          "height": 31637661,
+          "durationSeconds": 17.12,
+          "framesPerSecond": 25
+        },
+        {
+          "localFilename": "hero-fashion-768.mp4",
+          "localPath": "/media/videos/hero/hero-fashion-768.mp4",
+          "width": 0,
+          "format": "H.264 MP4, yuv420p, faststart, no audio",
+          "optimizedBytes": 2128364,
+          "sha256": "1beeaf07e1772232e30f59d879236285d3668c745e450c4fb39de5d33032f33c",
+          "height": 31637661,
+          "durationSeconds": 17.12,
+          "framesPerSecond": 25
+        },
+        {
+          "localFilename": "hero-fashion-768.webp",
+          "localPath": "/media/videos/posters/hero-fashion-768.webp",
+          "width": 768,
+          "height": 405,
+          "format": "WebP",
+          "optimizedBytes": 25058,
+          "sha256": "09cda38e6e1ca9372e848a13e339f483b7eeeb2da5e69d34773a35cbf3abb2fb"
+        },
+        {
+          "localFilename": "hero-fashion-1600.webp",
+          "localPath": "/media/videos/posters/hero-fashion-1600.webp",
+          "width": 1600,
+          "height": 844,
+          "format": "WebP",
+          "optimizedBytes": 55956,
+          "sha256": "74e9ab30ec92c4916d65f0e3268117d1be9098508ca486cd8b1bc3ed174961a2"
+        }
+      ],
+      "originalWidth": 4096,
+      "originalHeight": 2160,
+      "originalFormat": "H.264 MP4"
+    },
+    {
+      "originalFilename": "coco-campaign-original.mp4",
+      "originalSourceUrl": "https://videos.pexels.com/video-files/7667427/7667427-uhd_4096_2160_25fps.mp4",
+      "sourcePage": "https://www.pexels.com/video/7667427/",
+      "provider": "Pexels",
+      "creator": null,
+      "license": "Pexels License",
+      "licenseReference": "https://www.pexels.com/license/",
+      "commercialUseReference": "https://help.pexels.com/hc/en-us/articles/360042295214-Can-I-use-the-photos-and-videos-for-a-commercial-project",
+      "attributionRequired": false,
+      "licenseVerifiedDate": "2026-10-14",
+      "downloadDate": "2026-10-14",
+      "intendedUse": "Advertisement campaign film and matching posters",
+      "restrictions": "Editorial illustration only; no implied model/brand endorsement, no resale as stock or unaltered prints. Not merchant product photography.",
+      "sourcePageStatus": "Short-ID detail page inaccessible (403); original file downloaded from official Pexels CDN; provider-wide license verified. Creator not verified.",
+      "originalBytes": 27010956,
+      "originalSha256": "2d0a63a94262bb881f6dd9f326e7b4b4672ec66772e5c90f7c8582eafe352f74",
+      "files": [
+        {
+          "localFilename": "campaign-fashion-1280.mp4",
+          "localPath": "/media/videos/campaigns/campaign-fashion-1280.mp4",
+          "width": 0,
+          "format": "H.264 MP4, yuv420p, faststart, no audio",
+          "optimizedBytes": 2782085,
+          "sha256": "bd89e4b91d9ec1ac43ca4ece9cfc5d59528a03706c4254e959431fcf39a72a92",
+          "height": 31637661,
+          "durationSeconds": 20.52,
+          "framesPerSecond": 25
+        },
+        {
+          "localFilename": "campaign-fashion-768.mp4",
+          "localPath": "/media/videos/campaigns/campaign-fashion-768.mp4",
+          "width": 0,
+          "format": "H.264 MP4, yuv420p, faststart, no audio",
+          "optimizedBytes": 1352740,
+          "sha256": "556908b8ea95d0f307472c0cb1fbe1b0e9e5e3d89b62c077c7443029a2ab0763",
+          "height": 31637661,
+          "durationSeconds": 20.52,
+          "framesPerSecond": 25
+        },
+        {
+          "localFilename": "campaign-fashion-768.webp",
+          "localPath": "/media/videos/posters/campaign-fashion-768.webp",
+          "width": 768,
+          "height": 406,
+          "format": "WebP",
+          "optimizedBytes": 28620,
+          "sha256": "e48eed65533bd97cb9ae33ee432a9ad9c25ce5a4588d8ed05080956f0f96f135"
+        },
+        {
+          "localFilename": "campaign-fashion-1280.webp",
+          "localPath": "/media/videos/posters/campaign-fashion-1280.webp",
+          "width": 1280,
+          "height": 676,
+          "format": "WebP",
+          "optimizedBytes": 48736,
+          "sha256": "5fe04c89c5b04b931849b073c45b0f680eb2b5d0a6f50962f4c7fda80e89d3e5"
+        }
+      ],
+      "originalWidth": 4096,
+      "originalHeight": 2160,
+      "originalFormat": "H.264 MP4"
+    }
+  ],
+  "projectAuthoredAssets": [
+    {
+      "localPath": "/media/icons/default-user.svg",
+      "provider": "COCO project",
+      "source": "Authored SVG vector status icon; no downloaded imagery",
+      "license": "Original project contribution",
+      "intendedUse": "Missing member avatar",
+      "bytes": 234,
+      "sha256": "65baabfc7cfcc1c12715e90d0a4e45ee48aba2649fdc5a5c72b0461151b888ae"
+    },
+    {
+      "localPath": "/media/icons/product-unavailable.svg",
+      "provider": "COCO project",
+      "source": "Authored SVG vector status icon; no downloaded imagery",
+      "license": "Original project contribution",
+      "intendedUse": "Clearly disclose missing product photography",
+      "bytes": 430,
+      "sha256": "78684d7a9ed70b429a8aecd0e978cb8debbf5b5f5862a0eb6ab91917eec928c6"
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+// @ts-ignore
 import "../css/app.css";
 import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import HomePage from "./screens/homePage";

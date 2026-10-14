@@ -2,6 +2,8 @@ import React from "react";
 import { Box, Container, Typography } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import StoreNavigation, { StoreNavigationProps } from "./StoreNavigation";
+import LocalImage from "../media/LocalImage";
+import { MEDIA } from "../../../lib/media";
 
 const pageCopy = {
   products: { eyebrow: "THE COCO COLLECTION", title: "Shop" },
@@ -22,10 +24,11 @@ export default function OtherNavbar(props: StoreNavigationProps) {
     <Box className="coco-inner-header">
       <StoreNavigation {...props} />
       <Box className="coco-inner-header__banner">
-        <Box
-          component="img"
+        <LocalImage
           className="coco-inner-header__image"
-          src="https://cdn.prod.website-files.com/62cdfaa90f276b83c68133c3/670770605779fbd1e74d651d_hans-isaacson-ioRyX4xxnWw-unsplash.jpg"
+          asset={MEDIA.images.boutique}
+          sizes="100vw"
+          loading="eager"
           alt="Neutral clothing displayed inside a modern boutique"
         />
         <Box className="coco-inner-header__shade" />

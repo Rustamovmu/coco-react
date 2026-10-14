@@ -1,0 +1,28 @@
+.coco-background-poster,
+.coco-background-video {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.coco-background-toggle {
+  background: rgba(22, 19, 16, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 3px;
+  bottom: 18px;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  padding: 8px 12px;
+  position: absolute;
+  right: 18px;
+  z-index: 4;
+}
+
+.coco-background-toggle:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}

@@ -1,3 +1,4 @@
+import ProductImage from "../../components/media/ProductImage";
 import React from "react";
 import { Box, Button, Container, IconButton, Skeleton, Stack, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -47,7 +48,7 @@ export default function NewArrivals({ loading, error }: NewArrivalsProps) {
           {products.map((product, index) => (
             <Link to={`/products/${product._id}`} className={`new-arrival-card new-arrival-card--${index + 1}`} key={product._id}>
               <Box className="new-arrival-card__media">
-                <img src={getProductImage(product)} alt={product.productName} loading="lazy" />
+                <ProductImage src={getProductImage(product)} alt={product.productName} loading="lazy" />
                 <IconButton className={`new-arrival-card__like${product.isLiked ? " is-liked" : ""}`} onClick={(event) => toggleLike(event, product._id)} aria-label={product.isLiked ? `Unlike ${product.productName}` : `Like ${product.productName}`}>{product.isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}</IconButton>
                 <span className="new-arrival-card__badge">New</span><span className="new-arrival-card__category">{product.productCollection}</span><span className="new-arrival-card__number">{String(index + 1).padStart(2, "0")}</span><span className="new-arrival-card__action">View style <ArrowForwardIcon /></span>
               </Box>

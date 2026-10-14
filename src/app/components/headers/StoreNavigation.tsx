@@ -6,6 +6,7 @@ import { CartInterface } from "../../../lib/types/cart";
 import { Member } from "../../../lib/types/member";
 import ShoppingCart from "./ShoppingCart";
 import { serverApi } from "../../../lib/config";
+import { MEDIA } from "../../../lib/media";
 import "../../../css/navbar.css";
 
 export interface StoreNavigationProps {
@@ -23,7 +24,7 @@ export default function StoreNavigation({ authMember, cart, onLogin, onSignup, o
   const memberName = authMember?.memberNick || "Member";
   const memberImage = authMember?.memberImage
     ? (authMember.memberImage.startsWith("http") ? authMember.memberImage : `${serverApi}/${authMember.memberImage}`)
-    : "/icons/default-user.svg";
+    : MEDIA.icons.defaultUser;
 
   return (
     <Box component="header" className={`coco-header${transparent ? " coco-header--transparent" : ""}`}>

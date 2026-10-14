@@ -450,11 +450,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .coco-home-header__video {
-    display: none;
-  }
-
-  .coco-home-header__video-overlay {
-    background: linear-gradient(110deg, #f6f2ec 0%, #ddd0c1 100%);
-  }
+  .coco-home-header__scroll span { animation: none; }
 }

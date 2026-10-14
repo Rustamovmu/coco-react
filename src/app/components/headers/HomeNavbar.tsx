@@ -3,25 +3,19 @@ import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Link } from "react-router-dom";
 import StoreNavigation, { StoreNavigationProps } from "./StoreNavigation";
+import BackgroundVideo from "../media/BackgroundVideo";
+import { MEDIA } from "../../../lib/media";
 
 export default function HomeNavbar(props: StoreNavigationProps) {
   return (
     <Box className="coco-home-header">
-      <video
+      <BackgroundVideo
         className="coco-home-header__video"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        poster="https://images.pexels.com/photos/6069552/pexels-photo-6069552.jpeg?auto=compress&cs=tinysrgb&w=1600"
-        aria-hidden="true"
-      >
-        <source
-          src="https://videos.pexels.com/video-files/8306453/8306453-uhd_4096_2160_25fps.mp4"
-          type="video/mp4"
-        />
-      </video>
+        src={MEDIA.hero.video}
+        mobileSrc={MEDIA.hero.mobileVideo}
+        poster={MEDIA.hero.poster}
+        label="homepage background film"
+      />
       <Box className="coco-home-header__video-overlay" />
       <StoreNavigation {...props} transparent />
       <Container maxWidth="lg">

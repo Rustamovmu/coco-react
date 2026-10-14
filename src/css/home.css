@@ -913,14 +913,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .coco-campaign__film video {
-    display: none;
-  }
-
-  .coco-campaign__film {
-    background: url("https://images.pexels.com/videos/7667427/pexels-photo-7667427.jpeg?auto=compress&dpr=1&h=750&w=1260") center / cover;
-  }
-
   .coco-campaign__slide > img {
     transition: none;
   }

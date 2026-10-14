@@ -7,9 +7,10 @@ import {
   OrderUpdateInput,
 } from "../../lib/types/order";
 import { CartItem } from "../../lib/types/search";
+import { MEDIA } from "../../lib/media";
 
 const imageUrl = (image?: string): string => {
-  if (!image) return "/img/noimage-list.svg";
+  if (!image) return MEDIA.icons.productUnavailable;
   if (/^(https?:)?\/\//.test(image) || image.startsWith("data:")) return image;
   return `${serverApi}/${image.replace(/^\//, "")}`;
 };

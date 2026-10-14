@@ -1,3 +1,4 @@
+import ProductImage from "../../components/media/ProductImage";
 import React, { useEffect, useState } from "react";
 import { Box, Button, Container, IconButton, Stack, Typography } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -95,8 +96,8 @@ export default function ChosenProduct({ cart }: { cart: CartInterface }) {
       <Button component={Link} to="/products" className="product-detail__back" startIcon={<ArrowBackIcon />}>Back to collection</Button>
       <Box className="product-detail__layout">
         <Stack className="product-detail__gallery" direction="row">
-          <Stack className="product-detail__thumbnails">{images.map((image, index) => <button type="button" className={selectedImage === index ? "is-active" : ""} onClick={() => setSelectedImage(index)} key={image}><img src={image} alt={`${product.productName} view ${index + 1}`}/></button>)}</Stack>
-          <Box className="product-detail__image"><img src={images[selectedImage]} alt={product.productName}/></Box>
+          <Stack className="product-detail__thumbnails">{images.map((image, index) => <button type="button" className={selectedImage === index ? "is-active" : ""} onClick={() => setSelectedImage(index)} key={image}><ProductImage src={image} alt={`${product.productName} view ${index + 1}`}/></button>)}</Stack>
+          <Box className="product-detail__image"><ProductImage loading="eager" src={images[selectedImage]} alt={product.productName}/></Box>
         </Stack>
         <Stack className="product-detail__info">
           <Typography className="product-detail__badge">{product.productStock > 0 ? "Available now" : "Currently unavailable"}</Typography>
@@ -134,6 +135,6 @@ function RelatedProducts({ products, collection }: { products: Product[]; collec
       <Box><Typography className="related-products__eyebrow">You may also like</Typography><Typography component="h2" id="related-products-title">More in {collectionLabels[collection]}</Typography></Box>
       <Button component={Link} to={`/products?collection=${collection}`} endIcon={<ArrowForwardRoundedIcon />}>View all</Button>
     </Stack>
-    <Box className="related-products__grid">{products.map((item) => <Link to={`/products/${item._id}`} className="related-product-card" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} key={item._id}><Box className="related-product-card__media"><img src={getProductImage(item)} alt={item.productName} loading="lazy"/><span><ArrowForwardRoundedIcon /></span></Box><Stack direction="row" justifyContent="space-between" spacing={1} className="related-product-card__body"><Box><Typography className="related-product-card__name">{item.productName}</Typography><Typography className="related-product-card__collection">{collectionLabels[item.productCollection]}</Typography></Box><Typography className="related-product-card__price">{formatPrice(item.productDiscountPrice ?? item.productPrice)}</Typography></Stack></Link>)}</Box>
+    <Box className="related-products__grid">{products.map((item) => <Link to={`/products/${item._id}`} className="related-product-card" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} key={item._id}><Box className="related-product-card__media"><ProductImage src={getProductImage(item)} alt={item.productName} loading="lazy"/><span><ArrowForwardRoundedIcon /></span></Box><Stack direction="row" justifyContent="space-between" spacing={1} className="related-product-card__body"><Box><Typography className="related-product-card__name">{item.productName}</Typography><Typography className="related-product-card__collection">{collectionLabels[item.productCollection]}</Typography></Box><Typography className="related-product-card__price">{formatPrice(item.productDiscountPrice ?? item.productPrice)}</Typography></Stack></Link>)}</Box>
   </Box>;
 }

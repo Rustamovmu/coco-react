@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import { serverApi } from "../../../lib/config";
 import { TopMember } from "../../../lib/types/member";
+import { MEDIA } from "../../../lib/media";
 
 interface ActiveUsersProps {
   members: TopMember[];
@@ -12,7 +13,7 @@ interface ActiveUsersProps {
 const moneyFormatter = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
 const imageUrl = (path?: string) => path
   ? (/^https?:\/\//i.test(path) ? path : `${serverApi}/${path.replace(/^\//, "")}`)
-  : "/icons/default-user.svg";
+  : MEDIA.icons.defaultUser;
 const purchaseLabel = (count: number) => `${count} purchase${count === 1 ? "" : "s"}`;
 
 export default function ActiveUsers({ members, loading, error }: ActiveUsersProps) {

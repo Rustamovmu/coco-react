@@ -1,0 +1,538 @@
+{
+  "date": "2026-10-15",
+  "assetChecks": [
+    {
+      "port": 3000,
+      "path": "/media/images/campaigns/soft-tailoring-640.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 23620
+    },
+    {
+      "port": 3000,
+      "path": "/media/images/campaigns/soft-tailoring-1200.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 60524
+    },
+    {
+      "port": 3000,
+      "path": "/media/images/campaigns/neutral-edit-640.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 17078
+    },
+    {
+      "port": 3000,
+      "path": "/media/images/campaigns/neutral-edit-1200.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 36290
+    },
+    {
+      "port": 3000,
+      "path": "/media/images/campaigns/everyday-layers-640.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 28186
+    },
+    {
+      "port": 3000,
+      "path": "/media/images/campaigns/everyday-layers-1200.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 63640
+    },
+    {
+      "port": 3000,
+      "path": "/media/images/banners/neutral-boutique-640.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 16520
+    },
+    {
+      "port": 3000,
+      "path": "/media/images/banners/neutral-boutique-1600.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 71182
+    },
+    {
+      "port": 3000,
+      "path": "/media/images/editorial/fashion-designer-at-work-640.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 39104
+    },
+    {
+      "port": 3000,
+      "path": "/media/images/editorial/fashion-designer-at-work-1200.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 111924
+    },
+    {
+      "port": 3000,
+      "path": "/media/images/thumbnails/sewing-studio-320.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 13398
+    },
+    {
+      "port": 3000,
+      "path": "/media/videos/hero/hero-fashion-1600.mp4",
+      "status": 200,
+      "mime": "video/mp4",
+      "bytes": 5973418
+    },
+    {
+      "port": 3000,
+      "path": "/media/videos/hero/hero-fashion-768.mp4",
+      "status": 200,
+      "mime": "video/mp4",
+      "bytes": 2128364
+    },
+    {
+      "port": 3000,
+      "path": "/media/videos/posters/hero-fashion-768.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 25058
+    },
+    {
+      "port": 3000,
+      "path": "/media/videos/posters/hero-fashion-1600.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 55956
+    },
+    {
+      "port": 3000,
+      "path": "/media/videos/campaigns/campaign-fashion-1280.mp4",
+      "status": 200,
+      "mime": "video/mp4",
+      "bytes": 2782085
+    },
+    {
+      "port": 3000,
+      "path": "/media/videos/campaigns/campaign-fashion-768.mp4",
+      "status": 200,
+      "mime": "video/mp4",
+      "bytes": 1352740
+    },
+    {
+      "port": 3000,
+      "path": "/media/videos/posters/campaign-fashion-768.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 28620
+    },
+    {
+      "port": 3000,
+      "path": "/media/videos/posters/campaign-fashion-1280.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 48736
+    },
+    {
+      "port": 3000,
+      "path": "/media/icons/default-user.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "bytes": 234
+    },
+    {
+      "port": 3000,
+      "path": "/media/icons/product-unavailable.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "bytes": 430
+    },
+    {
+      "port": 4173,
+      "path": "/media/images/campaigns/soft-tailoring-640.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 23620
+    },
+    {
+      "port": 4173,
+      "path": "/media/images/campaigns/soft-tailoring-1200.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 60524
+    },
+    {
+      "port": 4173,
+      "path": "/media/images/campaigns/neutral-edit-640.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 17078
+    },
+    {
+      "port": 4173,
+      "path": "/media/images/campaigns/neutral-edit-1200.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 36290
+    },
+    {
+      "port": 4173,
+      "path": "/media/images/campaigns/everyday-layers-640.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 28186
+    },
+    {
+      "port": 4173,
+      "path": "/media/images/campaigns/everyday-layers-1200.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 63640
+    },
+    {
+      "port": 4173,
+      "path": "/media/images/banners/neutral-boutique-640.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 16520
+    },
+    {
+      "port": 4173,
+      "path": "/media/images/banners/neutral-boutique-1600.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 71182
+    },
+    {
+      "port": 4173,
+      "path": "/media/images/editorial/fashion-designer-at-work-640.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 39104
+    },
+    {
+      "port": 4173,
+      "path": "/media/images/editorial/fashion-designer-at-work-1200.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 111924
+    },
+    {
+      "port": 4173,
+      "path": "/media/images/thumbnails/sewing-studio-320.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 13398
+    },
+    {
+      "port": 4173,
+      "path": "/media/videos/hero/hero-fashion-1600.mp4",
+      "status": 200,
+      "mime": "video/mp4",
+      "bytes": 5973418
+    },
+    {
+      "port": 4173,
+      "path": "/media/videos/hero/hero-fashion-768.mp4",
+      "status": 200,
+      "mime": "video/mp4",
+      "bytes": 2128364
+    },
+    {
+      "port": 4173,
+      "path": "/media/videos/posters/hero-fashion-768.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 25058
+    },
+    {
+      "port": 4173,
+      "path": "/media/videos/posters/hero-fashion-1600.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 55956
+    },
+    {
+      "port": 4173,
+      "path": "/media/videos/campaigns/campaign-fashion-1280.mp4",
+      "status": 200,
+      "mime": "video/mp4",
+      "bytes": 2782085
+    },
+    {
+      "port": 4173,
+      "path": "/media/videos/campaigns/campaign-fashion-768.mp4",
+      "status": 200,
+      "mime": "video/mp4",
+      "bytes": 1352740
+    },
+    {
+      "port": 4173,
+      "path": "/media/videos/posters/campaign-fashion-768.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 28620
+    },
+    {
+      "port": 4173,
+      "path": "/media/videos/posters/campaign-fashion-1280.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 48736
+    },
+    {
+      "port": 4173,
+      "path": "/media/icons/default-user.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "bytes": 234
+    },
+    {
+      "port": 4173,
+      "path": "/media/icons/product-unavailable.svg",
+      "status": 200,
+      "mime": "image/svg+xml",
+      "bytes": 430
+    }
+  ],
+  "mp4RangeChecks": [
+    {
+      "path": "/media/videos/hero/hero-fashion-1600.mp4",
+      "status": 206,
+      "contentRange": "bytes 0-1023/5973418"
+    },
+    {
+      "path": "/media/videos/hero/hero-fashion-768.mp4",
+      "status": 206,
+      "contentRange": "bytes 0-1023/2128364"
+    },
+    {
+      "path": "/media/videos/campaigns/campaign-fashion-1280.mp4",
+      "status": 206,
+      "contentRange": "bytes 0-1023/2782085"
+    },
+    {
+      "path": "/media/videos/campaigns/campaign-fashion-768.mp4",
+      "status": 206,
+      "contentRange": "bytes 0-1023/1352740"
+    }
+  ],
+  "spaRouteChecks": [
+    {
+      "port": 3000,
+      "path": "/",
+      "status": 200
+    },
+    {
+      "port": 3000,
+      "path": "/products",
+      "status": 200
+    },
+    {
+      "port": 3000,
+      "path": "/products/6a8ed616609e7477889f2133",
+      "status": 200
+    },
+    {
+      "port": 3000,
+      "path": "/orders",
+      "status": 200
+    },
+    {
+      "port": 3000,
+      "path": "/member-page",
+      "status": 200
+    },
+    {
+      "port": 3000,
+      "path": "/help",
+      "status": 200
+    },
+    {
+      "port": 4173,
+      "path": "/",
+      "status": 200
+    },
+    {
+      "port": 4173,
+      "path": "/products",
+      "status": 200
+    },
+    {
+      "port": 4173,
+      "path": "/products/6a8ed616609e7477889f2133",
+      "status": 200
+    },
+    {
+      "port": 4173,
+      "path": "/orders",
+      "status": 200
+    },
+    {
+      "port": 4173,
+      "path": "/member-page",
+      "status": 200
+    },
+    {
+      "port": 4173,
+      "path": "/help",
+      "status": 200
+    }
+  ],
+  "preservedUploadChecks": [
+    {
+      "path": "uploads/members/0108aa82-a4c4-4d67-90e1-e878c41ca573.jpg",
+      "status": 200,
+      "bytes": 79610
+    },
+    {
+      "path": "uploads/members/0689089f-b548-42a6-9598-a127093420eb.jpg",
+      "status": 200,
+      "bytes": 53267
+    },
+    {
+      "path": "uploads/members/5d6e75da-f267-4387-9d96-95a5eeebff8b.png",
+      "status": 200,
+      "bytes": 2135258
+    },
+    {
+      "path": "uploads/members/71416aed-4590-449e-aab2-e7fcbb33c22a.png",
+      "status": 200,
+      "bytes": 2135258
+    },
+    {
+      "path": "uploads/members/7605fea5-ebbc-4c48-8dc8-266fbd68ad3b.jpg",
+      "status": 200,
+      "bytes": 88092
+    },
+    {
+      "path": "uploads/members/8b0f6b78-f21e-41af-9c92-1f9fc5858018.jpg",
+      "status": 200,
+      "bytes": 79414
+    },
+    {
+      "path": "uploads/members/af45f2f4-935f-4c0a-9021-279cdc0e33f9.jpg",
+      "status": 200,
+      "bytes": 47377
+    },
+    {
+      "path": "uploads/members/bb8927ca-5b84-4cb1-8b1b-9885f61c862d.jpg",
+      "status": 200,
+      "bytes": 455538
+    },
+    {
+      "path": "uploads/products/00760382-d5db-45ed-b781-afbdef0bae93.jpeg",
+      "status": 200,
+      "bytes": 42720
+    },
+    {
+      "path": "uploads/products/132ba8a7-ceef-4402-8886-ae1e6a8714f2.jpeg",
+      "status": 200,
+      "bytes": 76670
+    },
+    {
+      "path": "uploads/products/23a4d4fc-7811-4d86-847b-709ebb394ddc.jpeg",
+      "status": 200,
+      "bytes": 25933
+    },
+    {
+      "path": "uploads/products/40ee55b3-d824-4cce-a03b-56b934741b40.jpeg",
+      "status": 200,
+      "bytes": 50987
+    },
+    {
+      "path": "uploads/products/4e02202f-fa39-4a44-a326-b38e801c197f.jpeg",
+      "status": 200,
+      "bytes": 42720
+    },
+    {
+      "path": "uploads/products/5d3cb705-970b-4cc2-88a6-dc971b9ec1a2.jpeg",
+      "status": 200,
+      "bytes": 67157
+    },
+    {
+      "path": "uploads/products/5ef512d9-fda1-4662-a787-95636b680116.jpeg",
+      "status": 200,
+      "bytes": 68049
+    },
+    {
+      "path": "uploads/products/84ed9f9b-ef96-4256-a66e-d6a6c7f65fbc.jpeg",
+      "status": 200,
+      "bytes": 37741
+    },
+    {
+      "path": "uploads/products/938dfaf7-4005-499b-aa5e-e14d70843891.jpeg",
+      "status": 200,
+      "bytes": 24836
+    },
+    {
+      "path": "uploads/products/96f35036-0d6b-4cab-aae5-702df66ef03e.jpeg",
+      "status": 200,
+      "bytes": 70331
+    },
+    {
+      "path": "uploads/products/98417118-e1d3-4637-824d-369f00582829.jpeg",
+      "status": 200,
+      "bytes": 43362
+    },
+    {
+      "path": "uploads/products/aafbf0d7-a58a-4cb1-9b38-2da12d03653a.jpeg",
+      "status": 200,
+      "bytes": 101374
+    },
+    {
+      "path": "uploads/products/b7fa422e-7ae3-4436-ac73-2949254c3d9a.jpeg",
+      "status": 200,
+      "bytes": 50343
+    },
+    {
+      "path": "uploads/products/b8470d75-a2f6-46ce-ad18-f6fd94609e03.jpeg",
+      "status": 200,
+      "bytes": 37389
+    },
+    {
+      "path": "uploads/products/be0c889c-c97a-4be8-88e1-2913ad6b0e7b.jpeg",
+      "status": 200,
+      "bytes": 59555
+    },
+    {
+      "path": "uploads/products/c430fa0b-a009-4665-846e-34889132ec7c.jpeg",
+      "status": 200,
+      "bytes": 44667
+    },
+    {
+      "path": "uploads/products/c7624838-ef0c-4176-86c1-37f8d7c2bcec.jpeg",
+      "status": 200,
+      "bytes": 55929
+    },
+    {
+      "path": "uploads/products/d01afb71-fb28-47da-be01-eb4ae3797580.jpeg",
+      "status": 200,
+      "bytes": 59555
+    },
+    {
+      "path": "uploads/products/dcec155c-29d2-4113-adae-fe1eaa931657.jpeg",
+      "status": 200,
+      "bytes": 42581
+    },
+    {
+      "path": "uploads/products/efc14cc3-59db-488d-a2d8-ab087bdb5d19.jpeg",
+      "status": 200,
+      "bytes": 59555
+    },
+    {
+      "path": "uploads/products/f1cb7d85-96b7-492d-bca9-ad473035bed3.jpeg",
+      "status": 200,
+      "bytes": 35918
+    },
+    {
+      "path": "uploads/products/f6352f81-e7bf-425e-9995-71e672ce57a3.jpeg",
+      "status": 200,
+      "bytes": 33194
+    }
+  ],
+  "adminAssetStatus": 200,
+  "adminHomeStatus": 200,
+  "limitations": "HTTP checks validate serving and file equality, not rendered pixels, device playback, LCP, CLS or slow-network behavior."
+}
