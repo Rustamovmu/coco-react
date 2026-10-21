@@ -10,6 +10,7 @@ import { BrowserRouter } from "react-router-dom";
 import theme from "./app/MaterialTheme"
 // @ts-ignore: Ignore missing type declarations for CSS side-effect import
 import "./css/index.css";
+import { SocketProvider } from "./app/context/SocketContext";
 
 const container = document.getElementById("root");
 
@@ -22,12 +23,14 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
+      <SocketProvider>
        <ThemeProvider theme={theme}>
         <CssBaseline/>
         <BrowserRouter>
           <App />
         </BrowserRouter>
       </ThemeProvider>
+      </SocketProvider>
     </Provider>
   </React.StrictMode>
 );
